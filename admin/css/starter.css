@@ -1,0 +1,13 @@
+.navbar-custom-menu ul>li {
+    float: left;
+    list-style-type:none;
+}
+.navbar-custom-menu ul {
+    margin: 0;
+}
+.clear {
+    clear: both;
+}
+.page-nav {
+    float: right;
+}

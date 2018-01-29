@@ -47,20 +47,92 @@
 </aside>
 
 <script>
-    var dataMap = [];
+    var menuJson=[{
+        "name": "用户管理",
+        "controller":"#",
+        "child": [{
+            "name": "用户概览",
+            "controller":"user/home.do",
+            "child": null
+        },{
+            "name": "添加用户",
+            "controller":"user/add.do",
+            "child": null
+        }]
+    },{
+        "name": "文章管理",
+        "controller":"#",
+        "child": null
+    },{
+        "name": "文章管理",
+        "controller":"#",
+        "child": [{
+            "name": "用户概览",
+            "controller":"user/home.do",
+            "child": null
+        },{
+            "name": "添加用户",
+            "controller":"user/add.do",
+            "child": [{
+                "name": "用户概览",
+                "controller":"user/home.do",
+                "child": null
+            },{
+                "name": "添加用户",
+                "controller":"user/add.do",
+                "child": null
+            }]
+        }]
+    }];
+    initNav();
     function initNav() {
+        $("#sideNav").html('');
+        var menu = null;
+        var html = null;
+        var chidLen = null;
+        var child = null;
+        for (var i = 0; i < menuJson.length; i++) {
+            menu = menuJson[i];
+            if(i==0){
+                html = '<li menu-id="' + i + '" class="active treeview "></li>';
+            }else{
+                html = '<li menu-id="' + i + '" class="treeview "></li>';
+            }
+            $("#sideNav").append(html);
+            html = '<a href="'+menu.controller+'"> <i class="fa fa-dashboard"></i> <span>'+menu.name+'</span> </a>';
+            $('[menu-id="'+i+'"]').append(html);
 
+            //遍历2级
+            if(menu.child) {
+                var menu = menu.child;
+                for(var k =0;k<menu.length; k++) {
+                    if(i==0){
+                        $('[menu-id="'+i+'"]').append('<ul class="side-nav-child"></ul>');
+                        html = '<li parent-id="' + i + '" class="active treeview "></li>';
+                    }else{
+                        html = '<li parent-id="' + i + '" class="treeview "></li>';
+                    }
+                }
+                $('[menu-id="'+i+'"]>ul').append(html);
+                html = '<a href="'+menu.controller+'"> <i class="fa fa-dashboard"></i> <span>'+menu.name+'</span> </a>';
+                $('[menu-id="'+i+'"]').append(html);
+            }
+
+        }
     }
 
-    $('#sideNav').find('li').click(function() {
-        $_ul = $(this).children('ul');
-        if($_ul.css('display') === 'none') {
-            $_ul.slideDown();
-        }else {
-            $_ul.slideUp();
-        }
-        event.stopPropagation();
-    });
+    window.onload = function() {
+        $('#sideNav').find('li').click(function() {
+            $_ul = $(this).children('ul');
+            if($_ul.css('display') === 'none') {
+                $_ul.slideDown();
+            }else {
+                $_ul.slideUp();
+            }
+            event.stopPropagation();
+        });
+    };
+
 </script>
 </body>
 </html>
