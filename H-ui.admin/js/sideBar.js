@@ -324,59 +324,44 @@ $(function(){
         },
     ]
 
-    function initSideBar() {
-        $('#navMenu').html('');
-        var _html = '';
-        var _html2 = '';
-        var _hasChild1 = [];
-        $.each(dataMap,function(index,value){
-            if(value.children.length === 0) {
-                _html = '<li><a href="javascript:;" data-href="'+ value.url +'" class="afinve"><span class="">'+ value.name +'</span></a></li>';
-                $('#navMenu').append(_html);
-            }else {
-                _html = '<li><a href="javascript:;" class="afinve"> <span class="arrow"></span><span class="">'+ value.name +'</span></a></li>';
-                $('#navMenu').append(_html);
-                _hasChild1.push(index);
-
-                // 遍历第二层
-                $.each(value.children,function(index2,value2){
-                    if(index === 1) {
-                        return false;
-                    }
-                    console.log($('#navMenu').find('li:eq('+index+')'));
-                    console.log(value2.children.length)
-                    if(value2.children.length === 0) {
-                        _html2 = '<ul><li><a href="javascript:;" data-href="'+ value2.url +'" class="afinve"><span class="">'+ value2.name +'</span></a></li>';
-                        $('#navMenu').find('li:eq(index)').append(_html2);
-                    }else {
-                        _html2 = '<li><a href="javascript:;" class="afinve"> <span class="arrow"></span><span class="">'+ value2.name +'</span></a></li>';
-                        $('#navMenu').find('li:eq(index)').append(_html2);
-                    }
-                });
-
-            }
-
-        });
-
-        console.log(_hasChild1)
-
-    }
-    initSideBar();
-
-    function deepEach(data, elem) {
-        $.each(data, function(index,value){
-            console.log(index)
-            if(value.children.length === 0) {
-                _html = '<li><a href="javascript:;" data-href="'+ value.url +'" class="afinve"><span class="">'+ value.name +'</span></a></li>';
-                $('#navMenu').append(_html);
-
-            }else {
-                _html = '<li><a href="javascript:;" class="afinve"> <span class="arrow"></span><span class="">'+ value.name +'</span></a></li>';
-                $('#navMenu').append(_html);
-                _hasChild1.push(index);
-
-                deepEach(data.children, );
+    // 左侧菜单加载
+    function deepEach(data, elem) {
+        $.each(data, function(index, value){
+            if(value.children.length === 0) {
+                var html = '<li><a href="javascript:;" data-href="'+ value.url +'" class="afinve"><span class="">'+ value.name +'</span></a></li>';
+                elem.append(html);
+            } else {
+                var html = '<li><a href="javascript:;" class="afinve"> <span class="arrow"></span><span class="">'+ value.name +'</span></a>';
+                var newIndex = value.id;
+                elem.append(html+ '<ul class="sub-menu" id='+ newIndex +'>');
+                deepEach(value.children, $("#"+ newIndex));
+                elem.append("</ul></li>");
             }
         });
     }
+
+    $("#navMenu").html("");
+    deepEach(dataMap, $("#navMenu"));
+
+    // nav收缩展开
+    $('.navMenu li a').on('click', function () {
+        var parent = $(this).parent().parent();//获取当前页签的父级的父级
+        var labeul = $(this).parent("li").find(">ul")
+        if ($(this).parent().hasClass('open') == false) {
+            //展开未展开
+            parent.find('ul').slideUp(300);
+            parent.find("li").removeClass("open")
+            parent.find('li a').removeClass("active").find(".arrow").removeClass("open")
+            $(this).parent("li").addClass("open").find(labeul).slideDown(300);
+            $(this).addClass("active").find(".arrow").addClass("open")
+        } else {
+            $(this).parent("li").removeClass("open").find(labeul).slideUp(300);
+            if ($(this).parent().find("ul").length > 0) {
+                $(this).removeClass("active").find(".arrow").removeClass("open")
+            } else {
+                $(this).addClass("active")
+            }
+        }
+    });
+
 }());

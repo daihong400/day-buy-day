@@ -96,7 +96,8 @@
                     </ul>
                 </li>
                 <li class=""><a href="javascript:;" class="afinve"><span>合规管理</span></a></li>
-                <li><a href="javascript:;" class="afinve"><span class="arrow"></span><span class="nav-text">法律案件管理</span></a>
+                <li><a href="javascript:;" class="afinve"><span class="arrow"></span><span
+                        class="nav-text">法律案件管理</span></a>
                     <ul class="sub-menu">
                         <li><a href="javascript:;"><span>网站设置</span></a></li>
                         <li><a href="javascript:;"><span>友情链接</span></a></li>
@@ -111,7 +112,8 @@
                         <li><a href="javascript:;"><span>系统参数</span></a></li>
                     </ul>
                 </li>
-                <li><a href="javascript:;" class="afinve"><span class="arrow"></span><span class="nav-text">问题与整改计划</span></a>
+                <li><a href="javascript:;" class="afinve"><span class="arrow"></span><span
+                        class="nav-text">问题与整改计划</span></a>
                     <ul class="sub-menu">
                         <li><a href="javascript:;" class="afinve"><span>发运表</span></a></li>
                         <li><a href="javascript:;"><span>发运结算表</span></a></li>
@@ -129,13 +131,15 @@
                             <ul class="sub-menu">
                                 <li><a href="javascript:;"><span>发运单查询</span></a></li>
                                 <li><a href="javascript:;"><span>自营车查询</span></a></li>
-                                <li><a href="javascript:;" class="afinve"><span>报账明细</span><span class="arrow"></span></a>
+                                <li><a href="javascript:;" class="afinve"><span>报账明细</span><span
+                                        class="arrow"></span></a>
                                     <ul class="sub-menu">
                                         <li><a href="javascript:;"><span>报账明细1</span></a></li>
                                         <li><a href="javascript:;"><span>报账明细1</span></a></li>
                                         <li><a href="javascript:;"><span>报账明细1</span></a></li>
                                         <li><a href="javascript:;"><span>报账明细1</span></a></li>
-                                        <li><a href="javascript:;" class="afinve"><span>自营车汇总表</span><span class="arrow"></span></a>
+                                        <li><a href="javascript:;" class="afinve"><span>自营车汇总表</span><span
+                                                class="arrow"></span></a>
                                             <ul class="sub-menu">
                                                 <li><a href="javascript:;"><span>自营车汇总表1</span></a></li>
                                                 <li><a href="javascript:;"><span>自营车汇总表2</span></a></li>
@@ -160,9 +164,95 @@
 <section class="Hui-article-box">
     <div id="tab_demo" class="HuiTab">
         <div class="tabBar clearfix"><span>概览</span><span>待办事项</span><span>已办事项</span></div>
-        <div class="tabCon">内容一</div>
-        <div class="tabCon">内容二</div>
-        <div class="tabCon">内容三</div>
+        <div class="tabCon tabCon-summary">
+            <div class="summary-content-top">
+                <div class="summary-content-unit">
+
+                </div>
+            </div>
+        </div>
+        <div class="tabCon ">
+            <!--待办事项-->
+            <div class="matter-count-title">
+                <div>
+                    <span>待办</span>
+                    <span class="red">(47)</span>
+                </div>
+                <div>
+                    <span>总事项</span>
+                    <span class="orange">(89)</span>
+                </div>
+            </div>
+            <div class="matter-content">
+                <div class="matter-content-unit default">
+                    <p>0</p>
+                    <p>工作计划-创建</p>
+                </div>
+                <div class="matter-content-unit blue">
+                    <p>0</p>
+                    <p>工作计划-创建</p>
+                </div>
+            </div>
+        </div>
+        <div class="tabCon">
+            <!--已办事项-->
+            <div class="matter-count-title">
+                <div>
+                    <span>已办</span>
+                    <span class="red">(47)</span>
+                </div>
+                <div>
+                    <span>总事项</span>
+                    <span class="orange">(89)</span>
+                </div>
+            </div>
+            <div class="done-matter-content">
+                <table class="table table-border table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>城市</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Tanmay</td>
+                        <td>Bangalore</td>
+                    </tr>
+                    <tr>
+                        <td>Sachin</td>
+                        <td>Mumbai</td>
+                    </tr>
+                    <tr>
+                        <td>Uma</td>
+                        <td>Pune</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table table-border table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>城市</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Tanmay</td>
+                        <td>Bangalore</td>
+                    </tr>
+                    <tr>
+                        <td>Sachin</td>
+                        <td>Mumbai</td>
+                    </tr>
+                    <tr>
+                        <td>Uma</td>
+                        <td>Pune</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -176,48 +266,28 @@
 <!--<script type="text/javascript" src="lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>-->
 <script type="text/javascript">
     $(function () {
-        // nav收缩展开
-        $('.navMenu li a').on('click', function () {
-            var parent = $(this).parent().parent();//获取当前页签的父级的父级
-            var labeul = $(this).parent("li").find(">ul")
-            if ($(this).parent().hasClass('open') == false) {
-                //展开未展开
-                parent.find('ul').slideUp(300);
-                parent.find("li").removeClass("open")
-                parent.find('li a').removeClass("active").find(".arrow").removeClass("open")
-                $(this).parent("li").addClass("open").find(labeul).slideDown(300);
-                $(this).addClass("active").find(".arrow").addClass("open")
-            } else {
-                $(this).parent("li").removeClass("open").find(labeul).slideUp(300);
-                if ($(this).parent().find("ul").length > 0) {
-                    $(this).removeClass("active").find(".arrow").removeClass("open")
-                } else {
-                    $(this).addClass("active")
-                }
-            }
-        });
-
-
-        jQuery.Huitab =function(tabBar,tabCon,class_name,tabEvent,i){
-            var $tab_menu=$(tabBar);
+        jQuery.Huitab = function (tabBar, tabCon, class_name, tabEvent, i) {
+            var $tab_menu = $(tabBar);
             // 初始化操作
             $tab_menu.removeClass(class_name);
             $(tabBar).eq(i).addClass(class_name);
             $(tabCon).hide();
             $(tabCon).eq(i).show();
 
-            $tab_menu.bind(tabEvent,function(){
+            $tab_menu.bind(tabEvent, function () {
                 $tab_menu.removeClass(class_name);
                 $(this).addClass(class_name);
-                var index=$tab_menu.index(this);
+                var index = $tab_menu.index(this);
                 $(tabCon).hide();
-                $(tabCon).eq(index).show()})};
+                $(tabCon).eq(index).show()
+            })
+        };
         // #tab_demo 父级id
         // #tab_demo .tabBar span 控制条
         // #tab_demo .tabCon 内容区
         // click 事件 点击切换，可以换成mousemove 移动鼠标切换
         // 1	默认第2个tab为当前状态（从0开始）
-        $.Huitab("#tab_demo .tabBar span","#tab_demo .tabCon","current","click","0")
+        $.Huitab("#tab_demo .tabBar span", "#tab_demo .tabCon", "current", "click", "0")
 
     });
 
