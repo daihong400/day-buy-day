@@ -2,7 +2,7 @@
 /* 你自己的样式 */
 
 /*侧边栏样式*/
-body, html { height: 100%; overflow: hidden; }
+body, html { height: 100%;overflow-x: hidden}
 * { margin: 0; padding: 0 }
 body { font: 14px "微软雅黑", "FontAwesome", "Arial Narrow", HELVETICA; -webkit-text-size-adjust: 100%; }
 li { list-style: none }
@@ -109,7 +109,7 @@ a { text-decoration: none; }
     background-color: #cccccc;
 }
 .matter-content-unit.blue {
-    background-color: #425177;
+    background-color: #4b9df9;
 }
 .matter-content-unit p:nth-child(1) {
     position: absolute;
@@ -133,13 +133,108 @@ a { text-decoration: none; }
     margin-bottom: 21px;
 }
 .tabCon-summary {
-    padding: 10px;
+    padding: 0;
+}
+.tabCon-summary {
+    background-color: #f1efef;
 }
 .summary-content-unit {
-    width: 390px;
-    height: 218px;
+    width: 330px;
+    height: 158px;
     display: inline-block;
-    background-color: rgba(66, 81, 119, 1);
-    opacity: 0.1;
+    background-color: rgba(66, 81, 119, .1);
     margin: 10px;
+    padding: 30px;
+}
+.summary-content-top {
+    background-color: #ffffff;
+}
+.summary-content-unit p {
+    color: #000000;
+    font-size: 24px;
+}
+.unit-img-left {
+    position: relative;
+    top: 50px;
+    float: left;
+    width: 56px;
+}
+.unit-img-right {
+    float: right;
+    width: 116px;
+}
+.summary-title-icon {
+    display: inline-block;
+    width: 4px;
+    height: 16px;
+    vertical-align: middle;
+    background-color: rgba(210, 10, 16, 1);
+    line-height: 70px;
+}
+.summary-title {
+    margin-bottom: 24px;
+    text-align: left;
+}
+.summary-title h3 {
+    display: inline-block;
+    font-size: 16px;
+}
+.tabBar-dynamic>span {
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 14px;
+}
+.tabBar-dynamic>span.current {
+    position: relative;
+    z-index: 10;
+    color: #d20a10;
+    line-height: 35px;
+    border-bottom: 2px solid #d20a10;
+}
+.tabBar-dynamic {
+    display: inline-block;
+    float: left;
+    height: 36px;
+}
+.tabCon-dynamic {
+    position: relative;
+    top: -2px;
+    border-top: 2px solid #f1efef;
+    padding-top: 20px;
+}
+a.tabBar-dynamic-more {
+    float: right;
+    color: #d20a10;
+}
+.summary-content-bottom {
+    background-color: #f1efef;
+    margin-top: 20px;
+}
+.system-content,.QA-conement {
+    width: 100%;
+    min-height: 222px;
+    background-color: #ffffff;
+}
+.summary-content-bottom-left-table {
+    padding-left: 0;
+}
+.summary-content-bottom-right-table {
+
+}
+.summary-content-bottom thead tr {
+    background-color: rgba(204, 204, 204, 1);;
+}
+.summary-content-bottom-left-table-box {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    background-color: #ffffff;
+}
+.summary-content-bottom-right-table-box {
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+    background-color: #ffffff;
 }

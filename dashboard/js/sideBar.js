@@ -362,6 +362,13 @@ $(function(){
                 $(this).addClass("active")
             }
         }
+
     });
+
+    $('.navMenu li a').click(function(){
+        if($(this).attr('data-href') !== 'null' && $(this).attr('data-href') !== undefined) {
+            alert($(this).attr('data-href'))
+        }
+    })
 
 }());
