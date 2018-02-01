@@ -435,61 +435,10 @@ $(function(){
         myChart.setOption(option);
     }
 
-    //初始化雷达图
-    radarInit();
-    function radarInit() {
-        var myChart = echarts.init(document.getElementById('radarMap'));
-        option = {
-            radar: {
-                // shape: 'circle',
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        // borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [
-                    { name: '战略风险', max: 6500},
-                    { name: '市场风险', max: 16000},
-                    { name: '法律风险', max: 30000},
-                    { name: '财务风险', max: 38000},
-                    { name: '运营风险', max: 52000},
-                    { name: '市场风险', max: 25000}
-                ]
-            },
-            series: [{
-                name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                areaStyle: {normal: {
-                        color:"#4b9df9",
-                        type: 'default',
-                        opacity: '1'
-                    }},
-                itemStyle: {
-                    normal: {
-                        lineStyle: {
-                            color :"#87cefa",
-                            width : 2
-                        }
-                    }
-                },
-                data : [
-                    {
-                        value : [4300, 10000, 28000, 35000, 50000, 19000],
-                        name : '预算分配（Allocated Budget）'
-                    }
-                ]
-            }]
-        };
-        myChart.setOption(option);
-    }
-
     //初始化柱状图1
     barOneInit();
     function barOneInit() {
-        var myChart = echarts.init(document.getElementById('barMap1'));
+        var myChart = echarts.init(document.getElementById('barOneMap'));
         option = {
             color: ['#3398DB'],
             tooltip : {
@@ -531,89 +480,6 @@ $(function(){
                     barCategoryGap : '60%',
                     barMinHeight: 20,
                     barMaxWidth: 60,
-                    markLine : {
-                        itemStyle: {
-                            normal: {
-                                color:'#FA8565',
-                                label: {
-                                    formatter: '{b}'
-                                }
-                            }
-                        },
-                        data : [
-                            {type : 'average',
-                                name: '平均线'
-                            }
-                        ]
-                    }
-
-                }
-            ]
-        };
-        myChart.setOption(option);
-    }
-
-    //初始化柱状图2
-    barTwoInit();
-    function barTwoInit() {
-        var myChart = echarts.init(document.getElementById('barMap2'));
-        option = {
-            color: ['#3398DB'],
-            tooltip : {
-                trigger: 'axis',
-                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                }
-            },
-            grid: {
-                left: '3%',
-                right: '9%',
-                bottom: '8%',
-                containLabel: true
-            },
-            xAxis : [
-                {
-                    type : 'category',
-                    data : ['中信建投', '中国中信股份有限公司', '中信建投证券', '中信证券', '中信资本'],
-                    axisLabel: {
-                        interval:0,
-                        rotate:-40
-                    },
-                    axisTick: {
-                        alignWithLabel: true
-                    }
-                }
-            ],
-            yAxis : [
-                {
-                    type : 'value'
-                }
-            ],
-            series : [
-                {
-                    name:'直接访问',
-                    type:'bar',
-                    barWidth: '25',
-                    data:[10, 52, 200, 334, 390],
-                    barCategoryGap : '60%',
-                    barMinHeight: 20,
-                    barMaxWidth: 60,
-                    markLine : {
-                        itemStyle: {
-                            normal: {
-                                color:'#FA8565',
-                                label: {
-                                    formatter: '{b}'
-                                }
-                            }
-                        },
-                        data : [
-                            {type : 'average',
-                                name: '平均线'
-                            }
-                        ]
-                    }
-
                 }
             ]
         };
@@ -670,7 +536,7 @@ $(function(){
     //初始化柱状图3
     barThreeInit();
     function barThreeInit() {
-        var myChart = echarts.init(document.getElementById('barMap3'));
+        var myChart = echarts.init(document.getElementById('barThreeMap'));
         option = {
             color: ['#3398DB'],
             tooltip : {
@@ -711,67 +577,26 @@ $(function(){
                     data:[10, 52, 200, 334, 390],
                     barCategoryGap : '60%',
                     barMinHeight: 20,
-                    barMaxWidth: 60
+                    barMaxWidth: 60,
+                    // itemStyle: {
+                    //     normal: {
+                    //         label: {
+                    //             show: true,//是否展示
+                    //             textStyle: {
+                    //                 fontWeight:'bolder',
+                    //                 fontSize : '12',
+                    //                 fontFamily : '微软雅黑'
+                    //             }
+                    //         }
+                    //     }
+                    // }
                 }
             ]
         };
         myChart.setOption(option);
     }
 
-    //初始化柱状图4
-    barFourInit();
-    function barFourInit() {
-        var myChart = echarts.init(document.getElementById('barMap4'));
-        option = {
-            color: ['#3398DB'],
-            tooltip : {
-                trigger: 'axis',
-                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                }
-            },
-            grid: {
-                left: '3%',
-                right: '9%',
-                bottom: '8%',
-                containLabel: true
-            },
-            xAxis : [
-                {
-                    type : 'category',
-                    data : ['中信建投', '中国中信股份有限公司', '中信建投证券', '中信证券', '中信资本'],
-                    axisLabel: {
-                        interval:0,
-                        rotate:-40
-                    },
-                    axisTick: {
-                        alignWithLabel: true
-                    }
-                }
-            ],
-            yAxis : [
-                {
-                    type : 'value'
-                }
-            ],
-            series : [
-                {
-                    name:'直接访问',
-                    type:'bar',
-                    barWidth: '15',
-                    data:[10, 52, 200, 334, 390],
-                    barCategoryGap : '60%',
-                    barMinHeight: 20,
-                    barMaxWidth: 60
-                },
-                {
-                    name:'最新成交价',
-                    type:'line',
-                    data:[20, 22, 300, 134, 290]
-                }
-            ]
-        };
-        myChart.setOption(option);
-    }
+
+
 
 }());

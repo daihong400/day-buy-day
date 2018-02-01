@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+    <script type="text/javascript" src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="./css/H-ui.admin.css"/>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+    <link rel="stylesheet" type="text/css" href="./css/skin.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    <title>Risk</title>
+</head>
+<body>
+<header class="navbar-wrapper">
+    <div class="navbar navbar-fixed-top">
+        <div class="container-fluid cl">
+            <a class="logo navbar-logo f-l mr-10" href="/aboutHui.shtml">
+                <img src="./img/citic-logo.png" alt="">
+            </a>
+            <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
+                <!--顶部导航右边-->
+                <div class="navbar-custom-menu">
+                    <ul class="">
+                        <li>
+                            <span>欢迎</span>
+                            <a class="nav-link-blue" href="">管理员</a>
+                            ，
+                        </li>
+                        <li>
+                            <span>2017/01/01</span>
+                        </li>
+                        <li>
+                            <span class="nav-right-division">|</span>
+                            <span>首页</span>
+                        </li>
+                        <li>
+                            <span class="nav-right-division">|</span>
+                            <span>联系我们</span>
+                        </li>
+                        <li>
+                            <span class="nav-right-division">|</span>
+                            <span>退出</span>
+                        </li>
+                        <li>
+                            <span class="nav-right-division">|</span>
+                            <a href="">En</a>
+                            <span class="nav-right-division">|</span>
+                            <a class="languge-active" href="">中</a>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul class="page-nav">
+                        <li>
+                            <a class="nav-link-blue" href="">风险管理</a>
+                        </li>
+                        <li>
+                            <a class="nav-link-blue" href="">&nbsp;&gt;&nbsp;风险评估</a>
+                        </li>
+                        <li>
+                            <a class="nav-link-blue" href="">&nbsp;&gt;&nbsp;工作计划-创建</a>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<aside class="Hui-aside">
+    <!--侧边栏-->
+    <div class="navMenubox">
+        <div id="slimtest1">
+            <div class="navMenu-top">
+            </div>
+            <p class="navMenu-title">
+                首页
+            </p>
+            <ul id="navMenu" class="navMenu">
+                <!--<li><a href="javascript:;" class="afinve"> <span class="arrow"></span><span class="">险管理</span></a>-->
+                <!--<ul class="sub-menu">-->
+                <!--<li><a href="javascript:;"><span>二级分类一</span></a></li>-->
+                <!--<li><a href="javascript:;" class="afinve"><span class="arrow"></span><span>二级分类一</span></a>-->
+                <!--<ul class="sub-menu">-->
+                <!--<li><a href="javascript:;"><span>三级分类一</span></a></li>-->
+                <!--<li><a href="javascript:;"><span>三级分类一</span></a></li>-->
+                <!--</ul>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+</aside>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a>
+</div>
+
+<!--主体内容区-->
+<section class="Hui-article-box dashboard-article">
+    <!--顶部搜索条-->
+    <div class="top-search-bar">
+        <form>
+            <div class="top-search-unit">
+                <label>风险评估名称</label>
+                <input type="text" class="input-text radius size-M" autocomplete="off" placeholder="请输入">
+            </div>
+            <div class="top-search-unit">
+                <label>年度</label>
+                <select class="select" size="1" name="demo1">
+                    <option value="" selected>请选择</option>
+                    <option value="1">菜单一</option>
+                    <option value="2">菜单二</option>
+                    <option value="3">菜单三</option>
+                </select>
+            </div>
+            <div class="top-search-unit">
+                <label>状态</label>
+                <select class="select" size="1" name="demo1">
+                    <option value="" selected>请选择</option>
+                    <option value="1">菜单一</option>
+                    <option value="2">菜单二</option>
+                    <option value="3">菜单三</option>
+                </select>
+            </div>
+            <a class="search-btn" href="javascript:;">搜索</a>
+        </form>
+    </div>
+    <!--第一行区域-->
+    <div class="homepage-content-bottom industry-top">
+        <div class="panel panel-default">
+            <div class="panel-header"><span class="summary-title-icon"></span>内空自我评价</div>
+            <div class="panel-body">
+                <div class="panel-body-left">
+                    <div class="panel-title">
+                        <span class="panel-title-left">各版块内控自评价平均分</span>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="panel-body-left-content">
+                        <div class="industry-unit">
+                            <p class="industry-unit-title" style="color: #247cd5;">金融业</p>
+                            <div id="radarOne" style="width: 350px;height: 260px;margin: 0 auto;"></div>
+                        </div><div class="industry-unit">
+                            <p class="industry-unit-title" style="color: #15aede;">金融业</p>
+                            <div id="radarTwo" style="width: 350px;height: 260px;margin: 0 auto;"></div>
+                        </div><div class="industry-unit">
+                            <p class="industry-unit-title" style="color: #243bac;">金融业</p>
+                            <div id="radarThree" style="width: 350px;height: 260px;margin: 0 auto;"></div>
+                        </div><div class="industry-unit">
+                            <p class="industry-unit-title" style="color: #ff6611;">金融业</p>
+                            <div id="radarFour" style="width: 350px;height: 260px;margin: 0 auto;"></div>
+                        </div><div class="industry-unit">
+                            <p class="industry-unit-title" style="color: #4b9df9;">金融业</p>
+                            <div id="radarFive" style="width: 350px;height: 260px;margin: 0 auto;"></div>
+                        </div><div class="industry-unit">
+                            <p class="industry-unit-title" style="color: #3dc999;">金融业</p>
+                            <div id="radarSix" style="width: 350px;height: 260px;margin: 0 auto;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--第二行区域-->
+    <div class="homepage-content-bottom">
+        <div class="panel panel-default">
+            <div class="panel-header"><span class="summary-title-icon"></span>内空自我评价</div>
+            <div class="panel-body">
+                <div class="panel-body-left">
+                    <div class="panel-title">
+                        <span class="panel-title-left">各版块内控自评价平均分</span>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="panel-body-left-content">
+                        <div id="barMap2" style="width: 500px;height:300px;margin: 0 auto;"></div>
+                    </div></div><div class="panel-body-right">
+                <div class="panel-title">
+                    <span class="panel-title-left">各模块评估分值统计</span>
+                    <div class="clear"></div>
+                </div>
+                <div class="panel-body-left-content">
+                    <div class="inside-control-evaluate-wrap">
+                        <table class="table table-border table-bordered table-bg table-hover">
+                            <thead class="text-c">
+                            <tr>
+                                <th>企业名</th>
+                                <th>安全生产</th>
+                                <th>信息安全</th>
+                                <th>违法违纪</th>
+                                <th>负面报道</th>
+                                <th>其他</th>
+                            </tr>
+                            </thead>
+                            <tbody class="text-c">
+                            <tr>
+                                <td>中信XX</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>中信XX</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>中信XX</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>中信XX</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>中信XX</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>中信XX</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>中信XX</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+    <!--第三行区域-->
+    <div class="homepage-content-bottom"  >
+        <div class="panel panel-default">
+            <div class="panel-header"><span class="summary-title-icon"></span>重大风险事件</div>
+            <div class="panel-body">
+                <div class="panel-body-left">
+                    <div class="panel-title">
+                        <span class="panel-title-left">各类风险事件分析统计</span>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="panel-body-left-content">
+                        <div id="pieMap" style="width: 500px;height:300px;margin: 0 auto;"></div>
+                    </div></div><div class="panel-body-right">
+                <div class="panel-title">
+                    <span class="panel-title-left">各版块风险事件统计</span>
+                    <div class="clear"></div>
+                </div>
+                <div class="panel-body-left-content">
+                    <div class="inside-control-evaluate-wrap">
+                        <table class="table table-border table-bordered table-bg table-hover">
+                            <thead class="text-c">
+                            <tr>
+                                <th>企业名</th>
+                                <th>安全生产</th>
+                                <th>信息安全</th>
+                                <th>违法违纪</th>
+                                <th>负面报道</th>
+                                <th>其他</th>
+                            </tr>
+                            </thead>
+                            <tbody class="text-c">
+                            <tr>
+                                <td>中信XX</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>中信XX</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>中信XX</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>中信XX</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>中信XX</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>中信XX</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>中信XX</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>10</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/echarts.min .js"></script>
+<script type="text/javascript" src="./js/H-ui.min.js"></script>
+<script type="text/javascript" src="./js/industry.js"></script>
+
+</body>
+</html>

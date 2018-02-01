@@ -371,182 +371,47 @@ $(function(){
         }
     })
 
-    //初始化热力图
-    heatMapInit();
-    function heatMapInit() {
-        var myChart = echarts.init(document.getElementById('heatMap'));
-        var hours = ['有效', '', '管控有效性', '','无效'];
-        var days = ['高', '', '固有风险',
-            '', '低'];
-
-        var data = [[0,0,1],[0,1,2],[0,2,4],[0,3,4],[0,4,4],[1,1,4],[1,0,4]];
-        data = data.map(function (item) {
-            return [item[1], item[0], item[2] || '-'];
-        });
-
+    //初始化饼型图
+    pieInit();
+    function pieInit() {
+        var myChart = echarts.init(document.getElementById('pieMap'));
         option = {
-            tooltip: {
-                position: 'top'
-            },
-            animation: false,
-            grid: {
-                height: '50%',
-                y: '10%'
-            },
-            xAxis: {
-                type: 'category',
-                data: hours,
-                splitArea: {
-                    show: true
-                }
-            },
-            yAxis: {
-                type: 'category',
-                data: days,
-                splitArea: {
-                    show: true
-                }
-            },
-            visualMap: {
-                min: 0,
-                max: 10,
-                calculable: true,
-                orient: 'horizontal',
-                left: 'center',
-                bottom: '15%'
-            },
-            series: [{
-                name: 'Punch Card',
-                type: 'heatmap',
-                data: data,
-                label: {
-                    normal: {
-                        show: true
-                    }
-                },
-                itemStyle: {
-                    emphasis: {
-                        shadowBlur: 10,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                }
-            }]
-        };
-        myChart.setOption(option);
-    }
-
-    //初始化雷达图
-    radarInit();
-    function radarInit() {
-        var myChart = echarts.init(document.getElementById('radarMap'));
-        option = {
-            radar: {
-                // shape: 'circle',
-                name: {
-                    textStyle: {
-                        color: '#fff',
-                        backgroundColor: '#999',
-                        // borderRadius: 3,
-                        padding: [3, 5]
-                    }
-                },
-                indicator: [
-                    { name: '战略风险', max: 6500},
-                    { name: '市场风险', max: 16000},
-                    { name: '法律风险', max: 30000},
-                    { name: '财务风险', max: 38000},
-                    { name: '运营风险', max: 52000},
-                    { name: '市场风险', max: 25000}
-                ]
-            },
-            series: [{
-                name: '预算 vs 开销（Budget vs spending）',
-                type: 'radar',
-                areaStyle: {normal: {
-                        color:"#4b9df9",
-                        type: 'default',
-                        opacity: '1'
-                    }},
-                itemStyle: {
-                    normal: {
-                        lineStyle: {
-                            color :"#87cefa",
-                            width : 2
-                        }
-                    }
-                },
-                data : [
-                    {
-                        value : [4300, 10000, 28000, 35000, 50000, 19000],
-                        name : '预算分配（Allocated Budget）'
-                    }
-                ]
-            }]
-        };
-        myChart.setOption(option);
-    }
-
-    //初始化柱状图1
-    barOneInit();
-    function barOneInit() {
-        var myChart = echarts.init(document.getElementById('barMap1'));
-        option = {
-            color: ['#3398DB'],
             tooltip : {
-                trigger: 'axis',
-                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                }
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
             },
-            grid: {
-                left: '3%',
-                right: '9%',
-                bottom: '8%',
-                containLabel: true
+            legend: {
+                bottom: 10,
+                left: 'center',
+                data: ['安全生产','信息安全','违法违纪','负面报道','其他']
             },
-            xAxis : [
-                {
-                    type : 'category',
-                    data : ['中信建投', '中国中信股份有限公司', '中信建投证券', '中信证券', '中信资本'],
-                    axisLabel: {
-                        interval:0,
-                        rotate:-40
-                    },
-                    axisTick: {
-                        alignWithLabel: true
-                    }
-                }
-            ],
-            yAxis : [
-                {
-                    type : 'value'
-                }
-            ],
+            color: ['#4B9DF9','#f5c903','#3dc999','#f95151','#a0a0a0'],
             series : [
                 {
-                    name:'直接访问',
-                    type:'bar',
-                    barWidth: '25',
-                    data:[10, 52, 200, 334, 390],
-                    barCategoryGap : '60%',
-                    barMinHeight: 20,
-                    barMaxWidth: 60,
-                    markLine : {
-                        itemStyle: {
-                            normal: {
-                                color:'#FA8565',
-                                label: {
-                                    formatter: '{b}'
-                                }
-                            }
-                        },
-                        data : [
-                            {type : 'average',
-                                name: '平均线'
-                            }
-                        ]
+                    name: '访问来源',
+                    type: 'pie',
+                    radius : '55%',
+                    center: ['50%', '60%'],
+                    label: {
+                        normal: {
+                            position: 'inner',
+                            formatter: "{d}%"
+                        }
+                    },
+                    data:[
+                        {value:335, name:'安全生产'},
+                        {value:310, name:'信息安全'},
+                        {value:234, name:'违法违纪'},
+                        {value:300, name:'负面报道'},
+                        {value:1548, name:'其他'}
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
                     }
-
                 }
             ]
         };
@@ -620,156 +485,306 @@ $(function(){
         myChart.setOption(option);
     }
 
-    //初始化饼型图
-    pieInit();
-    function pieInit() {
-        var myChart = echarts.init(document.getElementById('pieMap'));
+    //初始化雷达图1
+    radarInit();
+    function radarInit() {
+        var myChart = echarts.init(document.getElementById('radarOne'));
         option = {
-            tooltip : {
-                trigger: 'item',
-                formatter: "{a} <br/>{b} : {c} ({d}%)"
-            },
-            legend: {
-                bottom: 10,
-                left: 'center',
-                data: ['安全生产','信息安全','违法违纪','负面报道','其他']
-            },
-            color: ['#4B9DF9','#f5c903','#3dc999','#f95151','#a0a0a0'],
-            series : [
-                {
-                    name: '访问来源',
-                    type: 'pie',
-                    radius : '55%',
-                    center: ['50%', '60%'],
-                    label: {
-                        normal: {
-                            position: 'inner',
-                            formatter: "{d}%"
-                        }
-                    },
-                    data:[
-                        {value:335, name:'安全生产'},
-                        {value:310, name:'信息安全'},
-                        {value:234, name:'违法违纪'},
-                        {value:300, name:'负面报道'},
-                        {value:1548, name:'其他'}
-                    ],
-                    itemStyle: {
-                        emphasis: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
+            radar: {
+                // shape: 'circle',
+                name: {
+                    textStyle: {
+                        color: '#fff',
+                        backgroundColor: '#999',
+                        // borderRadius: 3,
+                        padding: [3, 5]
                     }
-                }
-            ]
-        };
-        myChart.setOption(option);
-    }
-
-    //初始化柱状图3
-    barThreeInit();
-    function barThreeInit() {
-        var myChart = echarts.init(document.getElementById('barMap3'));
-        option = {
-            color: ['#3398DB'],
-            tooltip : {
-                trigger: 'axis',
-                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                }
-            },
-            grid: {
-                left: '3%',
-                right: '9%',
-                bottom: '8%',
-                containLabel: true
-            },
-            xAxis : [
-                {
-                    type : 'category',
-                    data : ['中信建投', '中国中信股份有限公司', '中信建投证券', '中信证券', '中信资本'],
-                    axisLabel: {
-                        interval:0,
-                        rotate:-40
-                    },
-                    axisTick: {
-                        alignWithLabel: true
-                    }
-                }
-            ],
-            yAxis : [
-                {
-                    type : 'value'
-                }
-            ],
-            series : [
-                {
-                    name:'直接访问',
-                    type:'bar',
-                    barWidth: '15',
-                    data:[10, 52, 200, 334, 390],
-                    barCategoryGap : '60%',
-                    barMinHeight: 20,
-                    barMaxWidth: 60
-                }
-            ]
-        };
-        myChart.setOption(option);
-    }
-
-    //初始化柱状图4
-    barFourInit();
-    function barFourInit() {
-        var myChart = echarts.init(document.getElementById('barMap4'));
-        option = {
-            color: ['#3398DB'],
-            tooltip : {
-                trigger: 'axis',
-                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                }
-            },
-            grid: {
-                left: '3%',
-                right: '9%',
-                bottom: '8%',
-                containLabel: true
-            },
-            xAxis : [
-                {
-                    type : 'category',
-                    data : ['中信建投', '中国中信股份有限公司', '中信建投证券', '中信证券', '中信资本'],
-                    axisLabel: {
-                        interval:0,
-                        rotate:-40
-                    },
-                    axisTick: {
-                        alignWithLabel: true
-                    }
-                }
-            ],
-            yAxis : [
-                {
-                    type : 'value'
-                }
-            ],
-            series : [
-                {
-                    name:'直接访问',
-                    type:'bar',
-                    barWidth: '15',
-                    data:[10, 52, 200, 334, 390],
-                    barCategoryGap : '60%',
-                    barMinHeight: 20,
-                    barMaxWidth: 60
                 },
-                {
-                    name:'最新成交价',
-                    type:'line',
-                    data:[20, 22, 300, 134, 290]
-                }
-            ]
+                indicator: [
+                    { name: '信用风险', max: 6500},
+                    { name: '市场风险', max: 16000},
+                    { name: '滚动性风险', max: 30000},
+                    { name: '操作风险', max: 38000},
+                    { name: '声誉风险', max: 52000},
+                    { name: '合规风险', max: 52000},
+                    { name: '战略风险', max: 52000},
+                    { name: '模型风险 ', max: 25000},
+                    { name: '保险风险 ', max: 25000}
+                ]
+            },
+            series: [{
+                name: '预算 vs 开销（Budget vs spending）',
+                type: 'radar',
+                areaStyle: {normal: {
+                        color:"#247cd5",
+                        type: 'default',
+                        opacity: '.5'
+                    }},
+                itemStyle: {
+                    normal: {
+                        lineStyle: {
+                            color :"#247cd5",
+                            width : 2
+                        }
+                    }
+                },
+                data : [
+                    {
+                        value : [4300, 10000, 28000, 35000, 50000, 19000],
+                        name : '预算分配（Allocated Budget）'
+                    }
+                ]
+            }]
+        };
+        myChart.setOption(option);
+    }
+
+    //初始化雷达图2
+    radarTwoInit();
+    function radarTwoInit() {
+        var myChart = echarts.init(document.getElementById('radarTwo'));
+        option = {
+            radar: {
+                // shape: 'circle',
+                name: {
+                    textStyle: {
+                        color: '#fff',
+                        backgroundColor: '#999',
+                        // borderRadius: 3,
+                        padding: [3, 5]
+                    }
+                },
+                indicator: [
+                    { name: '战略风险', max: 6500},
+                    { name: '市场风险', max: 4600},
+                    { name: '财务风险', max: 3000},
+                    { name: '法律风险', max: 3800},
+                    { name: '运营风险 ', max: 4500}
+                ]
+            },
+            series: [{
+                name: '预算 vs 开销（Budget vs spending）',
+                type: 'radar',
+                areaStyle: {normal: {
+                        color:"#15aede",
+                        type: 'default',
+                        opacity: '.5'
+                    }},
+                itemStyle: {
+                    normal: {
+                        lineStyle: {
+                            color :"#15aede",
+                            width : 2
+                        }
+                    }
+                },
+                data : [
+                    {
+                        value : [4300, 3000, 1800, 3500, 4000, 3200],
+                        name : '预算分配（Allocated Budget）'
+                    }
+                ]
+            }]
+        };
+        myChart.setOption(option);
+    }
+
+    //初始化雷达图3
+    radarThreeInit();
+    function radarThreeInit() {
+        var myChart = echarts.init(document.getElementById('radarThree'));
+        option = {
+            radar: {
+                // shape: 'circle',
+                name: {
+                    textStyle: {
+                        color: '#fff',
+                        backgroundColor: '#999',
+                        // borderRadius: 3,
+                        padding: [3, 5]
+                    }
+                },
+                indicator: [
+                    { name: '战略风险', max: 6500},
+                    { name: '市场风险', max: 4600},
+                    { name: '财务风险', max: 3000},
+                    { name: '法律风险', max: 3800},
+                    { name: '运营风险 ', max: 4500}
+                ]
+            },
+            series: [{
+                name: '预算 vs 开销（Budget vs spending）',
+                type: 'radar',
+                areaStyle: {normal: {
+                        color:"#243bac",
+                        type: 'default',
+                        opacity: '.5'
+                    }},
+                itemStyle: {
+                    normal: {
+                        lineStyle: {
+                            color :"#243bac",
+                            width : 2
+                        }
+                    }
+                },
+                data : [
+                    {
+                        value : [4300, 3000, 1800, 3500, 4000, 3200],
+                        name : '预算分配（Allocated Budget）'
+                    }
+                ]
+            }]
+        };
+        myChart.setOption(option);
+    }
+
+    //初始化雷达图4
+    radarFourInit();
+    function radarFourInit() {
+        var myChart = echarts.init(document.getElementById('radarFour'));
+        option = {
+            radar: {
+                // shape: 'circle',
+                name: {
+                    textStyle: {
+                        color: '#fff',
+                        backgroundColor: '#999',
+                        // borderRadius: 3,
+                        padding: [3, 5]
+                    }
+                },
+                indicator: [
+                    { name: '战略风险', max: 6500},
+                    { name: '市场风险', max: 4600},
+                    { name: '财务风险', max: 3000},
+                    { name: '法律风险', max: 3800},
+                    { name: '运营风险 ', max: 4500}
+                ]
+            },
+            series: [{
+                name: '预算 vs 开销（Budget vs spending）',
+                type: 'radar',
+                areaStyle: {normal: {
+                        color:"#ff6611",
+                        type: 'default',
+                        opacity: '.5'
+                    }},
+                itemStyle: {
+                    normal: {
+                        lineStyle: {
+                            color :"#ff6611",
+                            width : 2
+                        }
+                    }
+                },
+                data : [
+                    {
+                        value : [4300, 3000, 1800, 3500, 4000, 3200],
+                        name : '预算分配（Allocated Budget）'
+                    }
+                ]
+            }]
+        };
+        myChart.setOption(option);
+    }
+
+    //初始化雷达图5
+    radarFiveInit();
+    function radarFiveInit() {
+        var myChart = echarts.init(document.getElementById('radarFive'));
+        option = {
+            radar: {
+                // shape: 'circle',
+                name: {
+                    textStyle: {
+                        color: '#fff',
+                        backgroundColor: '#999',
+                        // borderRadius: 3,
+                        padding: [3, 5]
+                    }
+                },
+                indicator: [
+                    { name: '战略风险', max: 6500},
+                    { name: '市场风险', max: 4600},
+                    { name: '财务风险', max: 3000},
+                    { name: '法律风险', max: 3800},
+                    { name: '运营风险 ', max: 4500}
+                ]
+            },
+            series: [{
+                name: '预算 vs 开销（Budget vs spending）',
+                type: 'radar',
+                areaStyle: {normal: {
+                        color:"#4b9df9",
+                        type: 'default',
+                        opacity: '.5'
+                    }},
+                itemStyle: {
+                    normal: {
+                        lineStyle: {
+                            color :"#4b9df9",
+                            width : 2
+                        }
+                    }
+                },
+                data : [
+                    {
+                        value : [4300, 3000, 1800, 3500, 4000, 3200],
+                        name : '预算分配（Allocated Budget）'
+                    }
+                ]
+            }]
+        };
+        myChart.setOption(option);
+    }
+
+    //初始化雷达图6
+    radarSixInit();
+    function radarSixInit() {
+        var myChart = echarts.init(document.getElementById('radarSix'));
+        option = {
+            radar: {
+                // shape: 'circle',
+                name: {
+                    textStyle: {
+                        color: '#fff',
+                        backgroundColor: '#999',
+                        // borderRadius: 3,
+                        padding: [3, 5]
+                    }
+                },
+                indicator: [
+                    { name: '战略风险', max: 6500},
+                    { name: '市场风险', max: 4600},
+                    { name: '财务风险', max: 3000},
+                    { name: '法律风险', max: 3800},
+                    { name: '运营风险 ', max: 4500}
+                ]
+            },
+            series: [{
+                name: '预算 vs 开销（Budget vs spending）',
+                type: 'radar',
+                areaStyle: {normal: {
+                        color:"#3dc999",
+                        type: 'default',
+                        opacity: '.5'
+                    }},
+                itemStyle: {
+                    normal: {
+                        lineStyle: {
+                            color :"#3dc999",
+                            width : 2
+                        }
+                    }
+                },
+                data : [
+                    {
+                        value : [4300, 3000, 1800, 3500, 4000, 3200],
+                        name : '预算分配（Allocated Budget）'
+                    }
+                ]
+            }]
         };
         myChart.setOption(option);
     }

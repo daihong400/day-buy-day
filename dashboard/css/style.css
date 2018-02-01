@@ -293,3 +293,69 @@ a { text-decoration: none; }
 .panel-title-right {
     float: right;
 }
+.panel-title-transaction.panel-title {
+    border-bottom: none;
+}
+.HuiTab-transaction .tabBar span {
+    width: inherit;
+}
+.HuiTab-transaction .tabBar {
+    border-bottom: 1px solid rgba(216, 216, 216, 1);
+}
+.HuiTab-transaction .tabBar span {
+    height: 34px;
+    line-height: 34px;
+    font-size: 14px;
+    font-weight: normal;
+}
+.HuiTab-transaction .tabBar span.current {
+    background-color: transparent;
+    color: #d20a10;
+    border-bottom: 1px solid #d20a10;
+}
+.HuiTab-transaction .tabCon {
+    min-height: 300px;
+}
+.for-echarts-table {
+    margin-top: 40px;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    vertical-align: top;
+    display: inline-block;
+    width: 150px;
+}
+.for-echarts-table th{
+    background-color: rgba(66, 81, 119, 1);
+    color: #425177;
+}
+.for-echarts-table td{
+    font-size: 12px;
+    color: #425177;
+}
+.for-echarts-table tr td:nth-child(2){
+    text-align: right;
+}
+.for-echarts-table tr th:nth-child(2){
+    text-align: right;
+}
+.industry-top .panel-body {
+    width: 100%;
+    box-sizing: border-box;
+}
+.industry-top .panel-body-left {
+    width: 100%;
+}
+.industry-top .panel-body-left-content {
+    padding: 0;
+}
+.industry-unit {
+    vertical-align: top;
+    padding: 20px;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 33.3333333%;
+    min-height: 320px;
+    border-right: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+
+}

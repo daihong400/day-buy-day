@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+    <script type="text/javascript" src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="./css/H-ui.admin.css"/>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+    <link rel="stylesheet" type="text/css" href="./css/skin.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    <title>Risk</title>
+</head>
+<body>
+<header class="navbar-wrapper">
+    <div class="navbar navbar-fixed-top">
+        <div class="container-fluid cl">
+            <a class="logo navbar-logo f-l mr-10" href="/aboutHui.shtml">
+                <img src="./img/citic-logo.png" alt="">
+            </a>
+            <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
+                <!--顶部导航右边-->
+                <div class="navbar-custom-menu">
+                    <ul class="">
+                        <li>
+                            <span>欢迎</span>
+                            <a class="nav-link-blue" href="">管理员</a>
+                            ，
+                        </li>
+                        <li>
+                            <span>2017/01/01</span>
+                        </li>
+                        <li>
+                            <span class="nav-right-division">|</span>
+                            <span>首页</span>
+                        </li>
+                        <li>
+                            <span class="nav-right-division">|</span>
+                            <span>联系我们</span>
+                        </li>
+                        <li>
+                            <span class="nav-right-division">|</span>
+                            <span>退出</span>
+                        </li>
+                        <li>
+                            <span class="nav-right-division">|</span>
+                            <a href="">En</a>
+                            <span class="nav-right-division">|</span>
+                            <a class="languge-active" href="">中</a>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <ul class="page-nav">
+                        <li>
+                            <a class="nav-link-blue" href="">风险管理</a>
+                        </li>
+                        <li>
+                            <a class="nav-link-blue" href="">&nbsp;&gt;&nbsp;风险评估</a>
+                        </li>
+                        <li>
+                            <a class="nav-link-blue" href="">&nbsp;&gt;&nbsp;工作计划-创建</a>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<aside class="Hui-aside">
+    <!--侧边栏-->
+    <div class="navMenubox">
+        <div id="slimtest1">
+            <div class="navMenu-top">
+            </div>
+            <p class="navMenu-title">
+                首页
+            </p>
+            <ul id="navMenu" class="navMenu">
+                <!--左边菜单-->
+            </ul>
+        </div>
+    </div>
+</aside>
+<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a>
+</div>
+
+<!--主体内容区-->
+<section class="Hui-article-box dashboard-article">
+    <!--顶部搜索条-->
+    <div class="top-search-bar">
+        <form>
+            <div class="top-search-unit">
+                <label>风险评估名称</label>
+                <input type="text" class="input-text radius size-M" autocomplete="off" placeholder="请输入">
+            </div>
+            <div class="top-search-unit">
+                <label>年度</label>
+                <select class="select" size="1" name="demo1">
+                    <option value="" selected>请选择</option>
+                    <option value="1">菜单一</option>
+                    <option value="2">菜单二</option>
+                    <option value="3">菜单三</option>
+                </select>
+            </div>
+            <div class="top-search-unit">
+                <label>状态</label>
+                <select class="select" size="1" name="demo1">
+                    <option value="" selected>请选择</option>
+                    <option value="1">菜单一</option>
+                    <option value="2">菜单二</option>
+                    <option value="3">菜单三</option>
+                </select>
+            </div>
+            <a class="search-btn" href="javascript:;">搜索</a>
+        </form>
+    </div>
+    <!--第一行区域-->
+    <div>
+        <div class="homepage-content-top-left">
+            <div class="panel panel-default">
+                <div class="panel-header"><span class="summary-title-icon"></span>风险评估</div>
+                <div class="panel-body">
+                    <div class="panel-title"><span>集团二级风险点评估热力图</span></div>
+                    <div id="heatMap" style="width: 500px;height:300px;margin: 0 auto;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="homepage-content-top-right">
+            <div class="panel panel-default">
+                <div class="panel-header"><span class="summary-title-icon"></span>关键风险指标</div>
+                <div class="panel-body">
+                    <div class="panel-title"><a class="pull-right red" href="javascript:;">更多&gt;&gt;</a><div class="clear"></div></div>
+                    <div class="crux-risk-point-table">
+                        <table class="table table-border table-bordered">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <div class="crux-risk-point-table-flag"><i></i></div>
+                                    <p>2018-01-24(日)</p>
+                                    <p>净资产收益率</p>
+                                    <span>73.8%</span>
+                                </td>
+                                <td>
+                                    <p>2018-01-24(日)</p>
+                                    <p>净资产收益率</p>
+                                    <span>73.8%</span>
+                                </td>
+                                <td>
+                                    <p>2018-01-24(日)</p>
+                                    <p>净资产收益率</p>
+                                    <span>73.8%</span>
+                                </td>
+                                <td>
+                                    <p>2018-01-24(日)</p>
+                                    <p>净资产收益率</p>
+                                    <span>73.8%</span>
+                                </td>
+                                <td>
+                                    <p>2018-01-24(日)</p>
+                                    <p>净资产收益率</p>
+                                    <span>73.8%</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>2018-01-24(日)</p>
+                                    <p>净资产收益率</p>
+                                    <span>73.8%</span>
+                                </td>
+                                <td>
+                                    <p>2018-01-24(日)</p>
+                                    <p>净资产收益率</p>
+                                    <span>73.8%</span>
+                                </td>
+                                <td>
+                                    <p>2018-01-24(日)</p>
+                                    <p>净资产收益率</p>
+                                    <span>73.8%</span>
+                                </td>
+                                <td>
+                                    <p>2018-01-24(日)</p>
+                                    <p>净资产收益率</p>
+                                    <span>73.8%</span>
+                                </td>
+                                <td>
+                                    <p>2018-01-24(日)</p>
+                                    <p>净资产收益率</p>
+                                    <span>73.8%</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--第二行区域-->
+    <div>
+        <div class="homepage-content-top-left">
+            <div class="panel panel-default">
+                <div class="panel-header"><span class="summary-title-icon"></span>内控自评价</div>
+                <div class="panel-body">
+                    <div class="panel-title"><span>各要素评估分值</span></div>
+                    <div>
+                        <div id="barOneMap" style="width: 450px;height:300px;display: inline-block;"></div>
+                        <div class="for-echarts-table">
+                            <table class="table table-border table-bg">
+                                <thead>
+                                    <tr>
+                                        <th>评估维度</th>
+                                        <th>数量</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>完全符合</td>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>大部分不符合</td>
+                                        <td>50</td>
+                                    </tr>
+                                    <tr>
+                                        <td>部分不符合</td>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>不合适</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>不适用</td>
+                                        <td>5</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="homepage-content-top-right">
+            <div class="panel panel-default">
+                <div class="panel-header"><span class="summary-title-icon"></span>重大风险事件</div>
+                <div class="panel-body">
+                    <div class="panel-title"><span>各要风险事件分析统计</span></div>
+                    <div>
+                        <div id="pieMap" style="width: 450px;height:300px;display: inline-block;"></div>
+                        <div class="for-echarts-table">
+                            <table class="table table-border table-bg">
+                                <thead>
+                                <tr>
+                                    <th>类型</th>
+                                    <th>数量</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>安全生产</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>信息安全</td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <td>违法违纪</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>负面报道</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>其他</td>
+                                    <td>5</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--第三行区域-->
+    <div>
+        <div class="homepage-content-top-left">
+            <div class="panel panel-default">
+                <div class="panel-header"><span class="summary-title-icon"></span>交易对手报告</div>
+                <div class="panel-body">
+                    <div class="panel-title panel-title-transaction">
+                        <span class="panel-title-left">前十大非金融子公司交易对手 </span>
+                        <a class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
+                        <div class="clear"></div>
+                    </div>
+                    <div id="tab_demo" class="HuiTab-transaction">
+                        <div class="tabBar clearfix"><span>营业收入</span><span>采购金额</span><span>应收账款余额</span></div>
+                        <div class="tabCon">
+                            <!--营业收入-->
+                            <div id="barThreeMap" style="width: 500px;height:300px;margin: 0 auto;"></div>
+                        </div>
+                        <div class="tabCon">
+                            <!--采购金额-->
+                            采购金额
+                        </div>
+                        <div class="tabCon">
+                            <!--应收账款余额-->
+                            应收账款余额
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+
+</section>
+
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/echarts.min .js"></script>
+<script type="text/javascript" src="./js/H-ui.min.js"></script>
+<script type="text/javascript" src="js/subsidiary.js"></script>
+<script type="text/javascript">
+    $(function () {
+        // tab页初始化
+        jQuery.Huitab = function (tabBar, tabCon, class_name, tabEvent, i) {
+            var $tab_menu = $(tabBar);
+            // 初始化操作
+            $tab_menu.removeClass(class_name);
+            $(tabBar).eq(i).addClass(class_name);
+            $(tabCon).hide();
+            $(tabCon).eq(i).show();
+
+            $tab_menu.bind(tabEvent, function () {
+                $tab_menu.removeClass(class_name);
+                $(this).addClass(class_name);
+                var index = $tab_menu.index(this);
+                $(tabCon).hide();
+                $(tabCon).eq(index).show()
+            })
+        };
+        // #tab_demo 父级id
+        // #tab_demo .tabBar span 控制条
+        // #tab_demo .tabCon 内容区
+        // click 事件 点击切换，可以换成mousemove 移动鼠标切换
+        // 1	默认第2个tab为当前状态（从0开始）
+        $.Huitab("#tab_demo>.tabBar span", "#tab_demo>.tabCon", "current", "click", "0");
+
+    });
+</script>
+
+</body>
+</html>
