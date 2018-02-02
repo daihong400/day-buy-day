@@ -371,6 +371,55 @@ $(function(){
         }
     })
 
+
+    //风险评估弹窗
+    $('#radarMap').click(function() {
+        $('#modalRiskRadar').modal('show');
+    });
+    $('#heatMap').click(function() {
+        $('#modalHeatMap').modal('show');
+    });
+    //各子公司内控自评价表格点击每个数据弹窗
+    $('.inside-control-evaluate-link').click(function() {
+        $('#modalInsideControl').modal('show');
+    });
+    $('.inside-control-evaluate-title-link').click(function() {
+        $('#modalInsideControlTitle').modal('show');
+    });
+    // 集团关键风险指标预警
+    $('#cruxRiskMoreBtn').click(function() {
+        $('#modalCruxRisk').modal('show');
+    });
+    $('.crux-risk-point-table td').click(function() {
+        $('#modalCruxRiskDetail').modal('show');
+    });
+    // 子公司关键风险指标预警图
+    $('#subsidiaryKeyMoreBtn').click(function() {
+        $('#modalSubsidiaryKeyMore').modal('show');
+    });
+    $('.subsidiary-key-risk-point-warning td').click(function() {
+        $('#modalSubsidiaryKeyDetail').modal('show');
+    });
+    // 集团层面各子公司内控自评价情况-左
+    $('#barMap1').click(function() {
+        $('#modalBarMap1').modal('show');
+    });
+    $('#modalBarMap1 .modalBarMap1-title-link').click(function() {
+        $('#modalBarMap1-sub').modal('show');
+    });
+    // 集团层面各子公司内控自评价情况-右
+    $('#barMap2').click(function() {
+        $('#modalBarMap2').modal('show');
+    });
+    $('#modalBarMap2  .modalBarMap1-title-link').click(function() {
+        $('#modalBarMap2-sub').modal('show');
+    });
+    // 内空自我评价
+    $('#pieMap').click(function() {
+        $('#modalPieMap').modal('show');
+    });
+
+
     //初始化热力图
     heatMapInit();
     function heatMapInit() {
@@ -440,7 +489,27 @@ $(function(){
     function radarInit() {
         var myChart = echarts.init(document.getElementById('radarMap'));
         option = {
+            title: {
+                text: '集团一级风险雷达图',
+                //subtext:"集团一级风险雷达图",
+                textStyle:{
+                    //文字颜色
+                    color:'#000',
+                    //字体风格,'normal','italic','oblique'
+                    fontStyle:'normal',
+                    //字体粗细 'normal','bold','bolder','lighter',100 | 200 | 300 | 400...
+                    fontWeight:'normal',
+                    //字体系列
+                    fontFamily:'sans-serif',
+                    //字体大小
+                    fontSize:14
+                }
+            },
+            tooltip :{
+                show: true
+            },
             radar: {
+                nameGap : 2, // 图中工艺等字距离图的距离
                 // shape: 'circle',
                 name: {
                     textStyle: {
@@ -640,7 +709,7 @@ $(function(){
                     name: '访问来源',
                     type: 'pie',
                     radius : '55%',
-                    center: ['50%', '60%'],
+                    center: ['50%', '40%'],
                     label: {
                         normal: {
                             position: 'inner',
@@ -688,7 +757,7 @@ $(function(){
             xAxis : [
                 {
                     type : 'category',
-                    data : ['中信建投', '中国中信股份有限公司', '中信建投证券', '中信证券', '中信资本'],
+                    data : ['久恒', '铭鹰股份有限公司', '跃锐建投证券', '豪乾证券', '巨商资本', '久恒', '铭鹰股份有限公司', '跃锐建投证券', '豪乾证券', '巨商资本'],
                     axisLabel: {
                         interval:0,
                         rotate:-40
@@ -708,7 +777,7 @@ $(function(){
                     name:'直接访问',
                     type:'bar',
                     barWidth: '15',
-                    data:[10, 52, 200, 334, 390],
+                    data:[10, 52, 200, 334, 390,10, 52, 200, 334, 390],
                     barCategoryGap : '60%',
                     barMinHeight: 20,
                     barMaxWidth: 60

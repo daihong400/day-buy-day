@@ -10,7 +10,7 @@ a { text-decoration: none; }
 /* navMenu */
 .navMenu {padding-left: 22px;}
 .navMenubox { width: 240px; background: #ffffff; margin: 0 auto; overflow: hidden; }
-.navMenu-top { padding: 0; background-color: #f1efef;height: 20px;}
+.navMenu-top { padding: 0; background-color: #f1efef;height: 10px;}
 .navMenu> li { display: block; margin: 0; padding: 0; border: 0; }
 .navMenu>li>a { display: block; overflow: hidden; padding-left: 0; line-height: 40px; color: #000000; transition: all .3s; position: relative; text-decoration: none; font-size: 17px; }
 .navMenu > li:nth-of-type(1)> a { border-top: 1px solid transparent; }
@@ -139,29 +139,35 @@ a { text-decoration: none; }
     background-color: #f1efef;
 }
 .summary-content-unit {
-    width: 330px;
-    height: 158px;
+    box-sizing: border-box;
+    width: 25%;
     display: inline-block;
+    background-color: #ffffff;
+    padding: 5px;
+}
+.summary-content-unit-wrap {
+    min-height: 272px;
+}
+.summary-content-unit-box {
+    padding: 10px;
     background-color: rgba(66, 81, 119, .1);
-    margin: 10px;
-    padding: 30px;
 }
 .summary-content-top {
     background-color: #ffffff;
 }
 .summary-content-unit p {
     color: #000000;
-    font-size: 24px;
+    font-size: 20px;
 }
 .unit-img-left {
     position: relative;
-    top: 50px;
+    top: 25px;
     float: left;
-    width: 56px;
+    width: 38px;
 }
 .unit-img-right {
     float: right;
-    width: 116px;
+    width: 80px;
 }
 .summary-title-icon {
     display: inline-block;
@@ -172,7 +178,7 @@ a { text-decoration: none; }
     line-height: 70px;
 }
 .summary-title {
-    margin-bottom: 24px;
+    margin-bottom: 5px;
     text-align: left;
 }
 .summary-title h3 {
@@ -202,15 +208,18 @@ a { text-decoration: none; }
     position: relative;
     top: -2px;
     border-top: 2px solid #f1efef;
-    padding-top: 20px;
+    padding-top: 5px;
 }
 a.tabBar-dynamic-more {
     float: right;
     color: #d20a10;
 }
+.tabCon-dynamic td {
+    height: 20px;
+}
 .summary-content-bottom {
     background-color: #f1efef;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .system-content,.QA-conement {
     width: 100%;
@@ -237,4 +246,7 @@ a.tabBar-dynamic-more {
     text-align: right;
     padding: 10px;
     background-color: #ffffff;
+}
+.tabCon-dynamic .table th, .table td {
+    line-height: 12px;
 }

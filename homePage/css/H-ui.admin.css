@@ -19,7 +19,7 @@ h4{line-height:30px}
 /*页面框架*/
 .Hui-header{position:absolute;top:0; right:0; left:0;height:70px;z-index:999; padding:0 15px}
 .Hui-aside{position: absolute;top:70px;bottom:0;left:0;padding-top:0;z-index:99;overflow:auto; background-color:#ffffff;_background-color:rgb(238,238,238);}
-.Hui-article-box{position: absolute;top:70px;right:0;bottom: 0;left:240px; overflow:hidden;overflow-y: auto; z-index:1; background-color:#f1efef;padding-left: 20px;padding-top: 20px;padding-bottom: 60px}
+.Hui-article-box{position: absolute;top:70px;right:0;bottom: 0;left:240px; overflow:hidden;overflow-y: auto; z-index:1; background-color:#f1efef;padding-left: 20px;padding-top: 10px;padding-bottom: 20px}
 	.Hui-article{position: absolute;top:34px;bottom:0;left:0; right:0;overflow:auto;z-index:1}
 .Hui-container{ padding:45px 0 0}
 .Hui-aside,.Hui-article-box,.dislpayArrow{-moz-transition: all 0.2s ease 0s;-webkit-transition: all 0.2s ease 0s;-ms-transition: all 0.2s ease 0s;-o-transition: all 0.2s ease 0s;transition: all 0.2s ease 0s}

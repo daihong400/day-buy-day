@@ -369,6 +369,46 @@ $(function(){
         if($(this).attr('data-href') !== 'null' && $(this).attr('data-href') !== undefined) {
             alert($(this).attr('data-href'))
         }
-    })
+    });
+
+    // 初始化板块菜单
+    // $("#summaryContent").html('')
+    // deepEachModal(dataMap, $("#summaryContent"));
+    function deepEachModal(data, elem) {
+        $.each(data, function(index, value){
+            if(value.children.length === 0) {
+                var html = '<div id="'+value.id+'" class="summary-content-unit" data-id="'+value.id+'" data-parentId="'+value.parentId+'">' +
+                    '<div class="summary-content-unit-box">' +
+                    '<a href="javascript:;">' +
+                    '<p>'+ value.name +'</p>' +
+                    '<div>' +
+                    '<img class="unit-img-left" src="./img/jump_POS.png" alt="">' +
+                    '<img class="unit-img-right" src="./img/Shield_POS.png" alt="">' +
+                    '<div class="clear"></div>' +
+                    '</div>' +
+                    '</a>' +
+                    '</div>' +
+                    '</div>';
+                elem.append(html);
+            } else {
+                var html = '<div id="'+value.id+'" class="summary-content-unit" data-id="'+value.id+'" data-parentId="'+value.parentId+'">' +
+                                    '<div class="summary-content-unit-box">' +
+                                        '<a href="javascript:;">' +
+                                            '<p>'+ value.name +'</p>' +
+                                            '<div>' +
+                                                '<img class="unit-img-left" src="./img/jump_POS.png" alt="">' +
+                                                '<img class="unit-img-right" src="./img/Shield_POS.png" alt="">' +
+                                                '<div class="clear"></div>' +
+                                            '</div>' +
+                                        '</a>' +
+                                    '</div>' +
+                                '</div>';
+                elem.append(html+ '<div id="'+value.id+'" class="summary-content-unit summary-chidren" data-id="'+value.id+'" data-parentId="'+value.parentId+'">');
+                deepEachModal(value.children, $('#'+ value.id));
+                elem.append("</div>");
+            }
+        });
+    }
+
 
 }());

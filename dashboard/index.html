@@ -84,17 +84,6 @@
                 首页
             </p>
             <ul id="navMenu" class="navMenu">
-                <!--<li><a href="javascript:;" class="afinve"> <span class="arrow"></span><span class="">险管理</span></a>-->
-                    <!--<ul class="sub-menu">-->
-                        <!--<li><a href="javascript:;"><span>二级分类一</span></a></li>-->
-                        <!--<li><a href="javascript:;" class="afinve"><span class="arrow"></span><span>二级分类一</span></a>-->
-                            <!--<ul class="sub-menu">-->
-                                <!--<li><a href="javascript:;"><span>三级分类一</span></a></li>-->
-                                <!--<li><a href="javascript:;"><span>三级分类一</span></a></li>-->
-                            <!--</ul>-->
-                        <!--</li>-->
-                    <!--</ul>-->
-                <!--</li>-->
             </ul>
         </div>
     </div>
@@ -103,358 +92,1235 @@
 </div>
 
 <!--主体内容区-->
-<section class="Hui-article-box dashboard-article">
-    <!--顶部搜索条-->
-    <div class="top-search-bar">
-        <form>
-            <div class="top-search-unit">
-                <label>风险评估名称</label>
-                <input type="text" class="input-text radius size-M" autocomplete="off" placeholder="请输入">
-            </div>
-            <div class="top-search-unit">
-                <label>年度</label>
-                <select class="select" size="1" name="demo1">
-                    <option value="" selected>请选择</option>
-                    <option value="1">菜单一</option>
-                    <option value="2">菜单二</option>
-                    <option value="3">菜单三</option>
-                </select>
-            </div>
-            <div class="top-search-unit">
-                <label>状态</label>
-                <select class="select" size="1" name="demo1">
-                    <option value="" selected>请选择</option>
-                    <option value="1">菜单一</option>
-                    <option value="2">菜单二</option>
-                    <option value="3">菜单三</option>
-                </select>
-            </div>
-            <a class="search-btn" href="javascript:;">搜索</a>
-        </form>
-    </div>
-    <!--第一行区域-->
-    <div class="homepage-content-bottom">
-        <div class="panel panel-default">
-            <div class="panel-header"><span class="summary-title-icon"></span>风险评估</div>
-            <div class="panel-body">
-                <div class="panel-body-left">
-                    <div class="panel-title"><span>集团一级风险雷达图</span></div>
-                    <div class="panel-body-left-content">
-                        <div id="radarMap" style="width: 500px;height:300px;margin: 0 auto;"></div>
-                    </div></div><div class="panel-body-right">
-                    <div class="panel-title"><span>集团二级风险点评估热力图</span></div>
-                    <div class="panel-body-left-content">
-                        <div id="heatMap" style="width: 500px;height:300px;margin: 0 auto;"></div>
+<section class="Hui-article-box">
+    <div id="tab_demo" class="HuiTab">
+        <div class="tabBar clearfix"><span>概览</span><span>待办事项</span><span>已办事项</span></div>
+        <div class="tabCon tabCon-summary">
+            <div class="dashboard-article">
+                <!--顶部搜索条-->
+                <div class="top-search-bar">
+                    <form>
+                        <div class="top-search-unit">
+                            <label>风险评估名称</label>
+                            <input type="text" class="input-text radius size-M" autocomplete="off" placeholder="请输入">
+                        </div>
+                        <div class="top-search-unit">
+                            <label>年度</label>
+                            <select class="select" size="1" name="demo1">
+                                <option value="" selected>请选择</option>
+                                <option value="1">菜单一</option>
+                                <option value="2">菜单二</option>
+                                <option value="3">菜单三</option>
+                            </select>
+                        </div>
+                        <div class="top-search-unit">
+                            <label>状态</label>
+                            <select class="select" size="1" name="demo1">
+                                <option value="" selected>请选择</option>
+                                <option value="1">菜单一</option>
+                                <option value="2">菜单二</option>
+                                <option value="3">菜单三</option>
+                            </select>
+                        </div>
+                        <a class="search-btn" href="javascript:;">搜索</a>
+                    </form>
+                </div>
+                <!--第一行区域-->
+                <div class="homepage-content-bottom">
+                    <div class="panel panel-default">
+                        <div class="panel-header"><span class="summary-title-icon"></span>风险评估</div>
+                        <div class="panel-body">
+                            <div class="panel-body-left">
+                                <div class="panel-title"><span>集团一级风险雷达图</span></div>
+                                <div class="panel-body-left-content">
+                                    <div id="radarMap" style="width: 500px;height:300px;margin: 0 auto;"></div>
+                                </div></div><div class="panel-body-right">
+                            <div class="panel-title"><span>集团二级风险点评估热力图</span></div>
+                            <div class="panel-body-left-content">
+                                <div id="heatMap" style="width: 500px;height:300px;margin: 0 auto;"></div>
+                            </div>
+                        </div>
+
+                        </div>
                     </div>
                 </div>
+                <!--第二行区域-->
+                <div class="homepage-content-bottom">
+                    <div class="panel panel-default">
+                        <div class="panel-header"><span class="summary-title-icon"></span>风险评估</div>
+                        <div class="panel-body">
+                            <div class="panel-body-left">
+                                <div class="panel-title">
+                                    <span class="panel-title-left">集团关键风险指标预警</span>
+                                    <a id="cruxRiskMoreBtn" class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="crux-risk-point-table">
+                                    <table class="table table-border table-bordered">
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="crux-risk-point-table-flag" style="background-color:#f95151;"><i style="background-color:#f95151;"></i></div>
+                                                <p>2018-01-24(日)</p>
+                                                <p>净资产收益率</p>
+                                                <span>73.8%</span>
+                                            </td>
+                                            <td>
+                                                <div class="crux-risk-point-table-flag" style="background-color:#f95151;"><i style="background-color:#f95151;"></i></div>
+                                                <p>2018-01-24(日)</p>
+                                                <p>净资产收益率</p>
+                                                <span>73.8%</span>
+                                            </td>
+                                            <td>
+                                                <div class="crux-risk-point-table-flag" style="background-color:#e3cc48 ;"><i style="background-color:#e3cc48;"></i></div>
+                                                <p>2018-01-24(日)</p>
+                                                <p>净资产收益率</p>
+                                                <span>73.8%</span>
+                                            </td>
+                                            <td>
+                                                <div class="crux-risk-point-table-flag" style="background-color:#e3cc48;"><i style="background-color:#e3cc48;"></i></div>
+                                                <p>2018-01-24(日)</p>
+                                                <p>净资产收益率</p>
+                                                <span>73.8%</span>
+                                            </td>
+                                            <td>
+                                                <div class="crux-risk-point-table-flag" style="background-color:#e3cc48;"><i style="background-color:#e3cc48;"></i></div>
+                                                <p>2018-01-24(日)</p>
+                                                <p>净资产收益率</p>
+                                                <span>73.8%</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="crux-risk-point-table-flag" style="background-color:#3dc999;"><i style="background-color:#3dc999;"></i></div>
+                                                <p>2018-01-24(日)</p>
+                                                <p>净资产收益率</p>
+                                                <span>73.8%</span>
+                                            </td>
+                                            <td>
+                                                <div class="crux-risk-point-table-flag" style="background-color:#3dc999;"><i style="background-color:#3dc999;"></i></div>
+                                                <p>2018-01-24(日)</p>
+                                                <p>净资产收益率</p>
+                                                <span>73.8%</span>
+                                            </td>
+                                            <td>
+                                                <div class="crux-risk-point-table-flag" style="background-color:#3dc999;"><i style="background-color:#3dc999;"></i></div>
+                                                <p>2018-01-24(日)</p>
+                                                <p>净资产收益率</p>
+                                                <span>73.8%</span>
+                                            </td>
+                                            <td>
+                                                <div class="crux-risk-point-table-flag" style="background-color:#f95151;"><i style="background-color:#f95151;"></i></div>
+                                                <p>2018-01-24(日)</p>
+                                                <p>净资产收益率</p>
+                                                <span>73.8%</span>
+                                            </td>
+                                            <td>
+                                                <div class="crux-risk-point-table-flag" style="background-color:#f95151;"><i style="background-color:#f95151;"></i></div>
+                                                <p>2018-01-24(日)</p>
+                                                <p>净资产收益率</p>
+                                                <span>73.8%</span>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div></div><div class="panel-body-right">
+                            <div class="panel-title">
+                                <span class="panel-title-left">子公司关键风险指标预警图</span>
+                                <a id="subsidiaryKeyMoreBtn" class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="panel-body-left-content">
+                                <div class="subsidiary-key-risk-point-warning">
+                                    <table class="table table-border table-bordered">
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="subsidiary-key-risk-point-warning-unit">
+                                                    <p>中信建投</p>
+                                                    <div>
+                                                        <span>16</span><span>30</span><span>10</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="subsidiary-key-risk-point-warning-unit">
+                                                    <p>中信建投</p>
+                                                    <div>
+                                                        <span>16</span><span>30</span><span>10</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="subsidiary-key-risk-point-warning-unit">
+                                                    <p>中信建投</p>
+                                                    <div>
+                                                        <span>16</span><span>30</span><span>10</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="subsidiary-key-risk-point-warning-unit">
+                                                    <p>中信建投</p>
+                                                    <div>
+                                                        <span>16</span><span>30</span><span>10</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="subsidiary-key-risk-point-warning-unit">
+                                                    <p>中信建投</p>
+                                                    <div>
+                                                        <span>16</span><span>30</span><span>10</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="subsidiary-key-risk-point-warning-unit">
+                                                    <p>中信建投</p>
+                                                    <div>
+                                                        <span>16</span><span>30</span><span>10</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="subsidiary-key-risk-point-warning-unit">
+                                                    <p>中信建投</p>
+                                                    <div>
+                                                        <span>16</span><span>30</span><span>10</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="subsidiary-key-risk-point-warning-unit">
+                                                    <p>中信建投</p>
+                                                    <div>
+                                                        <span>16</span><span>30</span><span>10</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="subsidiary-key-risk-point-warning-unit">
+                                                    <p>中信建投</p>
+                                                    <div>
+                                                        <span>16</span><span>30</span><span>10</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="subsidiary-key-risk-point-warning-unit">
+                                                    <p>中信建投</p>
+                                                    <div>
+                                                        <span>16</span><span>30</span><span>10</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
+                        </div>
+                    </div>
+                </div>
+                <!--第三 行区域-->
+                <div class="homepage-content-bottom">
+                    <div class="panel panel-default">
+                        <div class="panel-header"><span class="summary-title-icon"></span>内控自我评价</div>
+                        <div class="panel-body">
+                            <div class="panel-body-left">
+                                <div class="panel-title">
+                                    <span class="panel-title-left">集团层面各子公司内控自评价情况</span>
+                                    <a class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="panel-body-left-content">
+                                    <div id="barMap1" style="width: 500px;height:300px;margin: 0 auto;"></div>
+                                </div></div><div class="panel-body-right">
+                            <div class="panel-title">
+                                <span class="panel-title-left">股份层面各子公司内控自评价情况</span>
+                                <a class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="panel-body-left-content">
+                                <div id="barMap2" style="width: 500px;height:300px;margin: 0 auto;"></div>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--第四 行区域-->
+                <div class="homepage-content-bottom">
+                    <div class="panel panel-default">
+                        <div class="panel-header"><span class="summary-title-icon"></span>内空自我评价</div>
+                        <div class="panel-body">
+                            <div class="panel-body-left">
+                                <div class="panel-title">
+                                    <span class="panel-title-left">各类风险事件分析统计</span>
+                                    <a class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="panel-body-left-content">
+                                    <div id="pieMap" style="width: 500px;height:300px;margin: 0 auto;"></div>
+                                </div></div><div class="panel-body-right">
+                            <div class="panel-title">
+                                <span class="panel-title-left">各事件类型情况分析</span>
+                                <a class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="panel-body-left-content">
+                                <div class="inside-control-evaluate-wrap">
+                                    <table class="table table-border table-bordered table-bg table-hover">
+                                        <thead class="text-c">
+                                        <tr>
+                                            <th>企业名</th>
+                                            <th>安全生产</th>
+                                            <th>信息安全</th>
+                                            <th>违法违纪</th>
+                                            <th>负面报道</th>
+                                            <th>其他</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody class="text-c">
+                                            <tr>
+                                                <td><a class="inside-control-evaluate-title-link" href="javascript:;">中信XX</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a class="inside-control-evaluate-title-link" href="javascript:;">中信XX</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a class="inside-control-evaluate-title-link" href="javascript:;">中信XX</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a class="inside-control-evaluate-title-link" href="javascript:;">中信XX</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a class="inside-control-evaluate-title-link" href="javascript:;">中信XX</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a class="inside-control-evaluate-title-link" href="javascript:;">中信XX</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a class="inside-control-evaluate-title-link" href="javascript:;">中信XX</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                                <td><a class="inside-control-evaluate-link" href="javascript:;">10</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--第五 行区域-->
+                <div class="homepage-content-bottom">
+                    <div class="panel panel-default">
+                        <div class="panel-header"><span class="summary-title-icon"></span>交易对手报告</div>
+                        <div class="panel-body five-row">
+                            <div class="panel-body-left">
+                                <div class="panel-title">
+                                    <span class="panel-title-left">前十大非金融子公司交易对手</span>
+                                    <a class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
+                                    <div class="clear"></div>
+                                </div>
+                                    <div id="tab_demoOpponent" class="HuiTab-transaction">
+                                        <div class="tabBar clearfix"><span>营业收入</span><span>采购金额</span><span>应收账款余额</span></div>
+                                        <div class="tabCon">
+                                            <!--营业收入-->
+                                            <div id="barMap3" style="width: 500px;height:300px;margin: 0 auto;"></div>
+                                        </div>
+                                        <div class="tabCon">
+                                            <!--采购金额-->
+                                            采购金额
+                                        </div>
+                                        <div class="tabCon">
+                                            <!--应收账款余额-->
+                                            应收账款余额
+                                        </div>
+                                    </div></div><div class="panel-body-right">
+                            <div class="panel-title">
+                                <span class="panel-title-left">股份层面各子公司内控自评价情况 </span>
+                                <a class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="panel-body-left-content">
+                                <div id="barMap4" style="width: 500px;height:300px;margin: 0 auto;"></div>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!--第二行区域-->
-    <div class="homepage-content-bottom">
-        <div class="panel panel-default">
-            <div class="panel-header"><span class="summary-title-icon"></span>风险评估</div>
-            <div class="panel-body">
-                <div class="panel-body-left">
-                    <div class="panel-title">
-                        <span class="panel-title-left">集团关键风险指标预警</span>
-                        <a class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="crux-risk-point-table">
-                        <table class="table table-border table-bordered">
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <div class="crux-risk-point-table-flag"><i></i></div>
-                                    <p>2018-01-24(日)</p>
-                                    <p>净资产收益率</p>
-                                    <span>73.8%</span>
-                                </td>
-                                <td>
-                                    <p>2018-01-24(日)</p>
-                                    <p>净资产收益率</p>
-                                    <span>73.8%</span>
-                                </td>
-                                <td>
-                                    <p>2018-01-24(日)</p>
-                                    <p>净资产收益率</p>
-                                    <span>73.8%</span>
-                                </td>
-                                <td>
-                                    <p>2018-01-24(日)</p>
-                                    <p>净资产收益率</p>
-                                    <span>73.8%</span>
-                                </td>
-                                <td>
-                                    <p>2018-01-24(日)</p>
-                                    <p>净资产收益率</p>
-                                    <span>73.8%</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>2018-01-24(日)</p>
-                                    <p>净资产收益率</p>
-                                    <span>73.8%</span>
-                                </td>
-                                <td>
-                                    <p>2018-01-24(日)</p>
-                                    <p>净资产收益率</p>
-                                    <span>73.8%</span>
-                                </td>
-                                <td>
-                                    <p>2018-01-24(日)</p>
-                                    <p>净资产收益率</p>
-                                    <span>73.8%</span>
-                                </td>
-                                <td>
-                                    <p>2018-01-24(日)</p>
-                                    <p>净资产收益率</p>
-                                    <span>73.8%</span>
-                                </td>
-                                <td>
-                                    <p>2018-01-24(日)</p>
-                                    <p>净资产收益率</p>
-                                    <span>73.8%</span>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div></div><div class="panel-body-right">
-                <div class="panel-title">
-                    <span class="panel-title-left">集团二级风险点评估热力图</span>
-                    <a class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
-                    <div class="clear"></div>
+        <div class="tabCon ">
+            <!--待办事项-->
+            <div class="matter-count-title">
+                <div>
+                    <span>待办</span>
+                    <span class="red">(47)</span>
                 </div>
-                <div class="panel-body-left-content">
-                    <div class="subsidiary-key-risk-point-warning">
-                        <div class="subsidiary-key-risk-point-warning-unit">
-                            <p>中信建投</p>
-                            <div>
-                                <span>16</span><span>30</span><span>10</span>
-                            </div>
-                        </div>
-                        <div class="subsidiary-key-risk-point-warning-unit">
-                            <p>中信建投</p>
-                            <div>
-                                <span>16</span><span>30</span><span>10</span>
-                            </div>
-                        </div>
-                        <div class="subsidiary-key-risk-point-warning-unit">
-                            <p>中信建投</p>
-                            <div>
-                                <span>16</span><span>30</span><span>10</span>
-                            </div>
-                        </div>
-                        <div class="subsidiary-key-risk-point-warning-unit">
-                            <p>中信建投</p>
-                            <div>
-                                <span>16</span><span>30</span><span>10</span>
-                            </div>
-                        </div>
-                        <div class="subsidiary-key-risk-point-warning-unit">
-                            <p>中信建投</p>
-                            <div>
-                                <span>16</span><span>30</span><span>10</span>
-                            </div>
-                        </div>
-                        <div class="subsidiary-key-risk-point-warning-unit">
-                            <p>中信建投</p>
-                            <div>
-                                <span>16</span><span>30</span><span>10</span>
-                            </div>
-                        </div>
-                        <div class="subsidiary-key-risk-point-warning-unit">
-                            <p>中信建投</p>
-                            <div>
-                                <span>16</span><span>30</span><span>10</span>
-                            </div>
-                        </div>
-                        <div class="subsidiary-key-risk-point-warning-unit">
-                            <p>中信建投</p>
-                            <div>
-                                <span>16</span><span>30</span><span>10</span>
-                            </div>
-                        </div>
-                        <div class="subsidiary-key-risk-point-warning-unit">
-                            <p>中信建投</p>
-                            <div>
-                                <span>16</span><span>30</span><span>10</span>
-                            </div>
-                        </div>
-                        <div class="subsidiary-key-risk-point-warning-unit">
-                            <p>中信建投</p>
-                            <div>
-                                <span>16</span><span>30</span><span>10</span>
-                            </div>
-                        </div>
-                    </div>
+                <div>
+                    <span>总事项</span>
+                    <span class="orange">(89)</span>
                 </div>
             </div>
-
+            <div class="matter-content">
+                <a href="javascript:;" class="matter-content-unit default">
+                    <p>0</p>
+                    <p>工作计划-创建</p>
+                </a>
+                <a href="javascript:;" class="matter-content-unit blue">
+                    <p>0</p>
+                    <p>工作计划-创建</p>
+                </a>
             </div>
         </div>
-    </div>
-    <!--第三 行区域-->
-    <div class="homepage-content-bottom">
-        <div class="panel panel-default">
-            <div class="panel-header"><span class="summary-title-icon"></span>内空自我评价</div>
-            <div class="panel-body">
-                <div class="panel-body-left">
-                    <div class="panel-title">
-                        <span class="panel-title-left">集团层面各子公司内控自评价情况</span>
-                        <a class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="panel-body-left-content">
-                        <div id="barMap1" style="width: 500px;height:300px;margin: 0 auto;"></div>
-                    </div></div><div class="panel-body-right">
-                <div class="panel-title">
-                    <span class="panel-title-left">股份层面各子公司内控自评价情况</span>
-                    <a class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
-                    <div class="clear"></div>
+        <div class="tabCon">
+            <!--已办事项-->
+            <div class="matter-count-title">
+                <div>
+                    <span>已办</span>
+                    <span class="red">(47)</span>
                 </div>
-                <div class="panel-body-left-content">
-                    <div id="barMap2" style="width: 500px;height:300px;margin: 0 auto;"></div>
+                <div>
+                    <span>总事项</span>
+                    <span class="orange">(89)</span>
                 </div>
             </div>
-
-            </div>
-        </div>
-    </div>
-    <!--第四 行区域-->
-    <div class="homepage-content-bottom">
-        <div class="panel panel-default">
-            <div class="panel-header"><span class="summary-title-icon"></span>内空自我评价</div>
-            <div class="panel-body">
-                <div class="panel-body-left">
-                    <div class="panel-title">
-                        <span class="panel-title-left">集团层面各子公司内控自评价情况</span>
-                        <a class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="panel-body-left-content">
-                        <div id="pieMap" style="width: 500px;height:300px;margin: 0 auto;"></div>
-                    </div></div><div class="panel-body-right">
-                <div class="panel-title">
-                    <span class="panel-title-left">股份层面各子公司内控自评价情况</span>
-                    <a class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
-                    <div class="clear"></div>
-                </div>
-                <div class="panel-body-left-content">
-                    <div class="inside-control-evaluate-wrap">
-                        <table class="table table-border table-bordered table-bg table-hover">
-                            <thead class="text-c">
-                            <tr>
-                                <th>企业名</th>
-                                <th>安全生产</th>
-                                <th>信息安全</th>
-                                <th>违法违纪</th>
-                                <th>负面报道</th>
-                                <th>其他</th>
-                            </tr>
-                            </thead>
-                            <tbody class="text-c">
-                                <tr>
-                                <td>中信XX</td>
-                                <td>10</td>
-                                <td>10</td>
-                                <td>10</td>
-                                <td>10</td>
-                                <td>10</td>
-                            </tr>
-                                <tr>
-                                    <td>中信XX</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>中信XX</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>中信XX</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>中信XX</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>中信XX</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <td>中信XX</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            </div>
-        </div>
-    </div>
-    <!--第五 行区域-->
-    <div class="homepage-content-bottom">
-        <div class="panel panel-default">
-            <div class="panel-header"><span class="summary-title-icon"></span>交易对手报告</div>
-            <div class="panel-body">
-                <div class="panel-body-left">
-                    <div class="panel-title">
-                        <span class="panel-title-left">前十大非金融子公司交易对手</span>
-                        <a class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="panel-body-left-content">
-                        <div id="barMap3" style="width: 500px;height:300px;margin: 0 auto;"></div>
-                    </div></div><div class="panel-body-right">
-                <div class="panel-title">
-                    <span class="panel-title-left">股份层面各子公司内控自评价情况 </span>
-                    <a class="panel-title-right red" href="javascript:;">更多&gt;&gt;</a>
-                    <div class="clear"></div>
-                </div>
-                <div class="panel-body-left-content">
-                    <div id="barMap4" style="width: 500px;height:300px;margin: 0 auto;"></div>
-                </div>
-            </div>
-
+            <div class="done-matter-content">
+                <table class="table table-border table-bordered table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>城市</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Tanmay</td>
+                        <td>Bangalore</td>
+                    </tr>
+                    <tr>
+                        <td>Sachin</td>
+                        <td>Mumbai</td>
+                    </tr>
+                    <tr>
+                        <td>Uma</td>
+                        <td>Pune</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table table-border table-bordered table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>城市</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Tanmay</td>
+                        <td>Bangalore</td>
+                    </tr>
+                    <tr>
+                        <td>Sachin</td>
+                        <td>Mumbai</td>
+                    </tr>
+                    <tr>
+                        <td>Uma</td>
+                        <td>Pune</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </section>
 
+<!--弹窗-->
+<!--各时间类型情况分析弹窗--点击数据-->
+<div id="modalInsideControl" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content radius">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:;">×</a>
+            </div>
+            <div class="modal-body">
+                <table class="table table-border table-bordered table-bg table-hover">
+                    <thead class="text-c">
+                    <tr>
+                        <th>影响单位</th>
+                        <th>风险得分</th>
+                        <th>风险等级</th>
+                        <th>风险趋势</th>
+                        <th>风险管理能力成熟度</th>
+                        <th>应对策略类别</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-c">
+                    <tr>
+                        <td>子公司</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>子公司</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>子公司</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>子公司</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>子公司</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>子公司</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                        <td>12</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--各时间类型情况分析--点击表头-->
+<div id="modalInsideControlTitle" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content radius">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:;">×</a>
+            </div>
+            <div class="modal-body">
+                <table class="table table-border table-bordered table-bg table-hover">
+                    <thead class="text-c">
+                    <tr>
+                        <th>风险得分</th>
+                        <th>风险等级</th>
+                        <th>风险趋势</th>
+                        <th>风险管理能力成熟度</th>
+                        <th>应对策略类别</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-c">
+                        <tr>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>12</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--集团一级风险雷达图弹窗-->
+<div id="modalRiskRadar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content radius">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:;">×</a>
+            </div>
+            <div class="modal-body">
+                <table class="table table-border table-bordered table-bg table-hover">
+                    <thead class="text-c">
+                    <tr>
+                        <th>序号</th>
+                        <th>风险点</th>
+                        <th>高风险子公司</th>
+                        <th>中风险子公司</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-c">
+                        <tr>
+                            <td>1</td>
+                            <td>投资风险</td>
+                            <td>10</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>政策风险</td>
+                            <td>9</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>中级风险子公司</td>
+                            <td>8</td>
+                            <td>9</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--集团二级风险点评估热力图-->
+<div id="modalHeatMap" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content radius">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:;">×</a>
+            </div>
+            <div class="modal-body">
+                <table class="table table-border table-bordered table-bg table-hover">
+                    <thead class="text-c">
+                    <tr>
+                        <th>序号</th>
+                        <th>风险点</th>
+                        <th>高风险子公司</th>
+                        <th>中风险子公司</th>
+                        <th>集团风险水平</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-c">
+                        <tr>
+                            <td>1</td>
+                            <td>投资风险</td>
+                            <td>10</td>
+                            <td>7</td>
+                            <td>高</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>政策风险</td>
+                            <td>10</td>
+                            <td>7</td>
+                            <td>中</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>国际化经营风险</td>
+                            <td>10</td>
+                            <td>7</td>
+                            <td>低</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>战略管理风险</td>
+                            <td>10</td>
+                            <td>7</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>宏观经济风险</td>
+                            <td>10</td>
+                            <td>7</td>
+                            <td>中</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>产业结构风险</td>
+                            <td>10</td>
+                            <td>7</td>
+                            <td>低</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>公司治理风险</td>
+                            <td>10</td>
+                            <td>7</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>组织结构风险</td>
+                            <td>10</td>
+                            <td>7</td>
+                            <td>高</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>集团管控风险</td>
+                            <td>10</td>
+                            <td>7</td>
+                            <td>中</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>社会责任风险</td>
+                            <td>10</td>
+                            <td>7</td>
+                            <td>低</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--集团关键风险指标预警-更多-->
+<div id="modalCruxRisk" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content radius">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:;">×</a>
+            </div>
+            <div class="modal-body modalCruxRisk-body">
+                <div class="crux-risk-point-table">
+                    <table class="table table-border table-bordered">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <div class="crux-risk-point-table-flag" style="background-color:#f95151;"><i style="background-color:#f95151;"></i></div>
+                                <p>2018-01-24(日)</p>
+                                <p>净资产收益率</p>
+                                <span>73.8%</span>
+                            </td>
+                            <td>
+                                <div class="crux-risk-point-table-flag" style="background-color:#f95151;"><i style="background-color:#f95151;"></i></div>
+                                <p>2018-01-24(日)</p>
+                                <p>净资产收益率</p>
+                                <span>73.8%</span>
+                            </td>
+                            <td>
+                                <div class="crux-risk-point-table-flag" style="background-color:#e3cc48 ;"><i style="background-color:#e3cc48;"></i></div>
+                                <p>2018-01-24(日)</p>
+                                <p>净资产收益率</p>
+                                <span>73.8%</span>
+                            </td>
+                            <td>
+                                <div class="crux-risk-point-table-flag" style="background-color:#e3cc48;"><i style="background-color:#e3cc48;"></i></div>
+                                <p>2018-01-24(日)</p>
+                                <p>净资产收益率</p>
+                                <span>73.8%</span>
+                            </td>
+                            <td>
+                                <div class="crux-risk-point-table-flag" style="background-color:#e3cc48;"><i style="background-color:#e3cc48;"></i></div>
+                                <p>2018-01-24(日)</p>
+                                <p>净资产收益率</p>
+                                <span>73.8%</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="crux-risk-point-table-flag" style="background-color:#3dc999;"><i style="background-color:#3dc999;"></i></div>
+                                <p>2018-01-24(日)</p>
+                                <p>净资产收益率</p>
+                                <span>73.8%</span>
+                            </td>
+                            <td>
+                                <div class="crux-risk-point-table-flag" style="background-color:#3dc999;"><i style="background-color:#3dc999;"></i></div>
+                                <p>2018-01-24(日)</p>
+                                <p>净资产收益率</p>
+                                <span>73.8%</span>
+                            </td>
+                            <td>
+                                <div class="crux-risk-point-table-flag" style="background-color:#3dc999;"><i style="background-color:#3dc999;"></i></div>
+                                <p>2018-01-24(日)</p>
+                                <p>净资产收益率</p>
+                                <span>73.8%</span>
+                            </td>
+                            <td>
+                                <div class="crux-risk-point-table-flag" style="background-color:#f95151;"><i style="background-color:#f95151;"></i></div>
+                                <p>2018-01-24(日)</p>
+                                <p>净资产收益率</p>
+                                <span>73.8%</span>
+                            </td>
+                            <td>
+                                <div class="crux-risk-point-table-flag" style="background-color:#f95151;"><i style="background-color:#f95151;"></i></div>
+                                <p>2018-01-24(日)</p>
+                                <p>净资产收益率</p>
+                                <span>73.8%</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--集团关键风险指标预警-详情-->
+<div id="modalCruxRiskDetail" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content radius">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:;">×</a>
+            </div>
+            <div class="modal-body modalCruxRisk-body">
+                集团关键风险指标预警-详情
+            </div>
+        </div>
+    </div>
+</div>
+<!--子公司关键风险指标预警图-更多-->
+<div id="modalSubsidiaryKeyMore" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content radius">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:;">×</a>
+            </div>
+            <div class="modal-body">
+                <div class="subsidiary-key-risk-point-warning">
+                    <table class="table table-border table-bordered">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <div class="subsidiary-key-risk-point-warning-unit">
+                                    <p>中信建投</p>
+                                    <div>
+                                        <span>16</span><span>30</span><span>10</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="subsidiary-key-risk-point-warning-unit">
+                                    <p>中信建投</p>
+                                    <div>
+                                        <span>16</span><span>30</span><span>10</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="subsidiary-key-risk-point-warning-unit">
+                                    <p>中信建投</p>
+                                    <div>
+                                        <span>16</span><span>30</span><span>10</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="subsidiary-key-risk-point-warning-unit">
+                                    <p>中信建投</p>
+                                    <div>
+                                        <span>16</span><span>30</span><span>10</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="subsidiary-key-risk-point-warning-unit">
+                                    <p>中信建投</p>
+                                    <div>
+                                        <span>16</span><span>30</span><span>10</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="subsidiary-key-risk-point-warning-unit">
+                                    <p>中信建投</p>
+                                    <div>
+                                        <span>16</span><span>30</span><span>10</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="subsidiary-key-risk-point-warning-unit">
+                                    <p>中信建投</p>
+                                    <div>
+                                        <span>16</span><span>30</span><span>10</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="subsidiary-key-risk-point-warning-unit">
+                                    <p>中信建投</p>
+                                    <div>
+                                        <span>16</span><span>30</span><span>10</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="subsidiary-key-risk-point-warning-unit">
+                                    <p>中信建投</p>
+                                    <div>
+                                        <span>16</span><span>30</span><span>10</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="subsidiary-key-risk-point-warning-unit">
+                                    <p>中信建投</p>
+                                    <div>
+                                        <span>16</span><span>30</span><span>10</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--子公司关键风险指标预警图-详情-->
+<div id="modalSubsidiaryKeyDetail" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content radius">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:;">×</a>
+            </div>
+            <div class="modal-body">
+                子公司关键风险指标预警图-详情
+            </div>
+        </div>
+    </div>
+</div>
+<!--各类风险事件分析统计-饼图-详情-->
+<div id="modalPieMap" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content radius">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:;">×</a>
+            </div>
+            <div class="modal-body">
+                集团层面各子公司内控自评价情况-详情
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--子公司关键风险指标预警图-更多-->
+<div id="modalBarMap1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content radius">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:;">×</a>
+            </div>
+            <div class="modal-body">
+                <table class="table table-border table-bordered table-bg table-hover">
+                    <tbody class="text-c">
+                    <tr>
+                        <td rowspan="2">coso五要素</td>
+                        <td rowspan="2">标准分值</th>
+                        <td colspan="3">自评价得分</th>
+                    </tr>
+                    <tr>
+                        <td>适用项目得分</td>
+                        <td>不适用项目得分</td>
+                        <td>最终得分</td>
+                    </tr>
+                    <tr>
+                        <td>（1）</td>
+                        <td>（2）</td>
+                        <td>（3）</td>
+                        <td>（4）</td>
+                        <td>（5）=（3）+（4）</td>
+                    </tr>
+                    <tr>
+                        <td><a class="modalBarMap1-title-link" href="javascript:;">控制环境</a></td>
+                        <td>40</td>
+                        <td>1.3</td>
+                        <td>1</td>
+                        <td>2.3</td>
+                    </tr>
+                    <tr>
+                        <td><a class="modalBarMap1-title-link" href="javascript:;">风险评估</a></td>
+                        <td>10</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><a class="modalBarMap1-title-link" href="javascript:;">控制活动</a></td>
+                        <td>25</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><a class="modalBarMap1-title-link" href="javascript:;">信息与沟通</a></td>
+                        <td>15</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><a class="modalBarMap1-title-link" href="javascript:;">监督活动</a></td>
+                        <td>10</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><a class="modalBarMap1-title-link" href="javascript:;">得分</a></td>
+                        <td>100</td>
+                        <td>1.3</td>
+                        <td>1</td>
+                        <td>2.3</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--子公司关键风险指标预警图-更多-->
+<div id="modalBarMap1-sub" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content radius">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:;">×</a>
+            </div>
+            <div class="modal-body">
+                <table class="table table-border table-bordered table-bg table-hover">
+                    <tbody class="text-c">
+                    <tr>
+                        <td rowspan="2">coso五要素</td>
+                        <td rowspan="2">评价标准</th>
+                        <td colspan="3">自评估</th>
+                        <td colspan="5">说明</th>
+                    </tr>
+                    <tr>
+                        <td>标准分值</td>
+                        <td>自评价结果</td>
+                        <td>得分</td>
+                        <td>自评价工作程序说明</td>
+                        <td>评分依据-附件</td>
+                        <td>其他说明（如结果为“不透明”）</td>
+                        <td>改进计划（如结果为“部分符合”）或（“不符合”）</td>
+                        <td>计划完成时间（年/月）</td>
+                    </tr>
+                    <tr>
+                        <td>（1）</td>
+                        <td>（2）</td>
+                        <td>（3）</td>
+                        <td>（4）</td>
+                        <td>（5）</td>
+                        <td>（5）</td>
+                        <td>（5）</td>
+                        <td>（5）</td>
+                        <td>（5）</td>
+                        <td>（5）</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--子公司关键风险指标预警图-更多-->
+<div id="modalBarMap2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content radius">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:;">×</a>
+            </div>
+            <div class="modal-body">
+                <table class="table table-border table-bordered table-bg table-hover">
+                    <tbody class="text-c">
+                    <tr>
+                        <td rowspan="2">coso五要素</td>
+                        <td rowspan="2">标准分值</th>
+                        <td colspan="3">自评价得分</th>
+                    </tr>
+                    <tr>
+                        <td>适用项目得分</td>
+                        <td>不适用项目得分</td>
+                        <td>最终得分</td>
+                    </tr>
+                    <tr>
+                        <td>（1）</td>
+                        <td>（2）</td>
+                        <td>（3）</td>
+                        <td>（4）</td>
+                        <td>（5）=（3）+（4）</td>
+                    </tr>
+                    <tr>
+                        <td><a class="modalBarMap1-title-link" href="javascript:;">控制环境</a></td>
+                        <td>40</td>
+                        <td>1.3</td>
+                        <td>1</td>
+                        <td>2.3</td>
+                    </tr>
+                    <tr>
+                        <td><a class="modalBarMap1-title-link" href="javascript:;">风险评估</a></td>
+                        <td>10</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><a class="modalBarMap1-title-link" href="javascript:;">控制活动</a></td>
+                        <td>25</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><a class="modalBarMap1-title-link" href="javascript:;">信息与沟通</a></td>
+                        <td>15</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><a class="modalBarMap1-title-link" href="javascript:;">监督活动</a></td>
+                        <td>10</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><a class="modalBarMap1-title-link" href="javascript:;">得分</a></td>
+                        <td>100</td>
+                        <td>1.3</td>
+                        <td>1</td>
+                        <td>2.3</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--子公司关键风险指标预警图-更多-->
+<div id="modalBarMap2-sub" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content radius">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal" aria-hidden="true" href="javascript:;">×</a>
+            </div>
+            <div class="modal-body">
+                <table class="table table-border table-bordered table-bg table-hover">
+                    <tbody class="text-c">
+                    <tr>
+                        <td rowspan="2">coso五要素</td>
+                        <td rowspan="2">评价标准</th>
+                        <td colspan="3">自评估</th>
+                        <td colspan="5">说明</th>
+                    </tr>
+                    <tr>
+                        <td>标准分值</td>
+                        <td>自评价结果</td>
+                        <td>得分</td>
+                        <td>自评价工作程序说明</td>
+                        <td>评分依据-附件</td>
+                        <td>其他说明（如结果为“不透明”）</td>
+                        <td>改进计划（如结果为“部分符合”）或（“不符合”）</td>
+                        <td>计划完成时间（年/月）</td>
+                    </tr>
+                    <tr>
+                        <td>（1）</td>
+                        <td>（2）</td>
+                        <td>（3）</td>
+                        <td>（4）</td>
+                        <td>（5）</td>
+                        <td>（5）</td>
+                        <td>（5）</td>
+                        <td>（5）</td>
+                        <td>（5）</td>
+                        <td>（5）</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript" src="./js/jquery.min.js"></script>
 <script type="text/javascript" src="./js/echarts.min .js"></script>
 <script type="text/javascript" src="./js/H-ui.min.js"></script>
 <script type="text/javascript" src="./js/index.js"></script>
+<script type="text/javascript">
+    $(function () {
+        // tab页初始化
+        jQuery.Huitab = function (tabBar, tabCon, class_name, tabEvent, i) {
+            var $tab_menu = $(tabBar);
+            // 初始化操作
+            $tab_menu.removeClass(class_name);
+            $(tabBar).eq(i).addClass(class_name);
+            $(tabCon).hide();
+            $(tabCon).eq(i).show();
+
+            $tab_menu.bind(tabEvent, function () {
+                $tab_menu.removeClass(class_name);
+                $(this).addClass(class_name);
+                var index = $tab_menu.index(this);
+                $(tabCon).hide();
+                $(tabCon).eq(index).show()
+            })
+        };
+        // #tab_demo 父级id
+        // #tab_demo .tabBar span 控制条
+        // #tab_demo .tabCon 内容区
+        // click 事件 点击切换，可以换成mousemove 移动鼠标切换
+        // 1	默认第2个tab为当前状态（从0开始）
+        $.Huitab("#tab_demo>.tabBar span", "#tab_demo>.tabCon", "current", "click", "0");
+        $.Huitab("#tab_demoOpponent>.tabBar span", "#tab_demoOpponent>.tabCon", "current", "click", "0");
+        $.Huitab("#tab_dynamic .tabBar-dynamic span", "#tab_dynamic .tabCon-dynamic", "current", "click", "0");
+        $.Huitab("#tab_shareInfo .tabBar-dynamic span", "#tab_shareInfo .tabCon-dynamic", "current", "click", "0");
+
+    });
+
+</script>
 
 </body>
 </html>
