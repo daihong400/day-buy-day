@@ -340,8 +340,8 @@ $(function(){
         });
     }
 
-    $("#navMenu").html("");
-    deepEach(dataMap, $("#navMenu"));
+    //$("#navMenu").html("");
+    //deepEach(dataMap, $("#navMenu"));
 
     // nav收缩展开
     $('.navMenu li a').on('click', function () {
@@ -372,13 +372,11 @@ $(function(){
     });
 
     // 初始化板块菜单
-    // $("#summaryContent").html('')
-    // deepEachModal(dataMap, $("#summaryContent"));
     function deepEachModal(data, elem) {
         $.each(data, function(index, value){
             if(value.children.length === 0) {
-                var html = '<div id="'+value.id+'" class="summary-content-unit" data-id="'+value.id+'" data-parentId="'+value.parentId+'">' +
-                    '<div class="summary-content-unit-box">' +
+                var html = '<div class="summary-content-unit-box" data-id="'+value.id+'" data-parentId="'+value.parentId+'" name="'+value.name+'" id="'+value.id+'">' +
+                        '<div class="summary-content-unit">'+
                     '<a href="javascript:;">' +
                     '<p>'+ value.name +'</p>' +
                     '<div>' +
@@ -391,8 +389,8 @@ $(function(){
                     '</div>';
                 elem.append(html);
             } else {
-                var html = '<div id="'+value.id+'" class="summary-content-unit" data-id="'+value.id+'" data-parentId="'+value.parentId+'">' +
-                                    '<div class="summary-content-unit-box">' +
+                var html =  '<div class="summary-content-unit-box" data-id="'+value.id+'" data-parentId="'+value.parentId+'" name="'+value.name+'" id="'+value.id+'">' +
+                    '<div class="summary-content-unit">'+
                                         '<a href="javascript:;">' +
                                             '<p>'+ value.name +'</p>' +
                                             '<div>' +
@@ -401,14 +399,18 @@ $(function(){
                                                 '<div class="clear"></div>' +
                                             '</div>' +
                                         '</a>' +
-                                    '</div>' +
-                                '</div>';
-                elem.append(html+ '<div id="'+value.id+'" class="summary-content-unit summary-chidren" data-id="'+value.id+'" data-parentId="'+value.parentId+'">');
-                deepEachModal(value.children, $('#'+ value.id));
-                elem.append("</div>");
+                                        '</div>' +
+                                    '</div>';
+                var newIndex = value.id;
+                elem.append(html + '<div class="summary-content-unit-sub">');
+                deepEachModal(value.children, $('#'+ newIndex));
+                elem.append('</div>');
             }
         });
+        elem.append('<div class="clear"></div>');
     }
+    $("#summaryContent").html('')
+    deepEachModal(dataMap, $("#summaryContent"));
 
 
 }());
