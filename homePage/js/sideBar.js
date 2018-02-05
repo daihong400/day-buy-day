@@ -372,45 +372,76 @@ $(function(){
     });
 
     // 初始化板块菜单
-    function deepEachModal(data, elem) {
+    function deepEachModal(data, elem ,push) {
         $.each(data, function(index, value){
+            var html =  '<div class="summary-content-unit-box" data-id="'+value.id+'" data-parentId="'+value.parentId+'" id="'+value.id+'" data-url="'+value.url+'" >' +
+                '<div class="summary-content-unit">'+
+                        '<div class="summary-content-unit-inside">'+
+                            '<a href="javascript:;">' +
+                                '<p>'+ value.name +'</p>' +
+                                '<div>' +
+                                    '<img class="unit-img-left" src="./img/jump_POS.png" alt="">' +
+                                    '<img class="unit-img-right" src="./img/Shield_POS.png" alt="">' +
+                                    '<div class="clear"></div>' +
+                                '</div>' +
+                            '</a>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
             if(value.children.length === 0) {
-                var html = '<div class="summary-content-unit-box" data-id="'+value.id+'" data-parentId="'+value.parentId+'" name="'+value.name+'" id="'+value.id+'">' +
-                        '<div class="summary-content-unit">'+
-                    '<a href="javascript:;">' +
-                    '<p>'+ value.name +'</p>' +
-                    '<div>' +
-                    '<img class="unit-img-left" src="./img/jump_POS.png" alt="">' +
-                    '<img class="unit-img-right" src="./img/Shield_POS.png" alt="">' +
-                    '<div class="clear"></div>' +
-                    '</div>' +
-                    '</a>' +
-                    '</div>' +
-                    '</div>';
                 elem.append(html);
             } else {
-                var html =  '<div class="summary-content-unit-box" data-id="'+value.id+'" data-parentId="'+value.parentId+'" name="'+value.name+'" id="'+value.id+'">' +
-                    '<div class="summary-content-unit">'+
-                                        '<a href="javascript:;">' +
-                                            '<p>'+ value.name +'</p>' +
-                                            '<div>' +
-                                                '<img class="unit-img-left" src="./img/jump_POS.png" alt="">' +
-                                                '<img class="unit-img-right" src="./img/Shield_POS.png" alt="">' +
-                                                '<div class="clear"></div>' +
-                                            '</div>' +
-                                        '</a>' +
-                                        '</div>' +
-                                    '</div>';
                 var newIndex = value.id;
-                elem.append(html + '<div class="summary-content-unit-sub">');
-                deepEachModal(value.children, $('#'+ newIndex));
-                elem.append('</div>');
+                elem.append(html);
+                deepEachModal(value.children, $('#summaryContent'));
+                // elem.append('<div class="clear"></div>');
             }
         });
-        elem.append('<div class="clear"></div>');
     }
-    $("#summaryContent").html('')
+    $("#summaryContent").html('<div class="clear"></div>');
     deepEachModal(dataMap, $("#summaryContent"));
+
+    listModalInit();
+    //初始化板块列表
+    function listModalInit() {
+        $("[data-parentid=null]").show();
+        $("[data-parentid!=null].summary-content-unit-box").hide();
+    }
+    //点击板块进入下一级或者跳转页面
+    var parentNodeArry = [];
+    var zindex = 0; //点一下模块加1
+    parentNodeArry[zindex] = [];
+    $('.summary-content-unit').click(function() {
+        var _parent = $(this).parent();
+        console.log(parentNodeArry)
+        if(_parent.attr('data-url') === 'null') {
+            zindex ++;
+            console.log(zindex)
+            parentNodeArry[zindex] = [];
+            $('.summary-content-unit-box:visible').each(function(index, ele) {
+                parentNodeArry[zindex].push($(ele).attr('data-id'));
+            });
+
+            $('.summary-content-unit-box').hide();
+            $('[data-parentid='+_parent.attr("data-id")+']').show();
+            $('#summaryBackBtn').attr('data-parent',_parent.attr("data-id"));
+        }else {
+            // window.location.href = _parent.attr('data-url');
+            alert('跳转页面')
+        }
+    });
+    $('#summaryBackBtn').click(function() {
+        console.log(zindex)
+        if(zindex !== 0) {
+            zindex--;
+        }
+        if(parentNodeArry[zindex+1]) {
+            $('.summary-content-unit-box').hide();
+            $.each(parentNodeArry[zindex+1], function(index, item) {
+                $('[data-id='+item+']').show();
+            });
+        }
+    });
 
 
 }());

@@ -140,59 +140,44 @@ a { text-decoration: none; }
 }
 .summary-content-unit {
     display: inline-block;
+    box-sizing: border-box;
     width: 25%;
     float: left;
+    /*margin-left: 10px;*/
+    /*margin-bottom: 10px;*/
+    padding: 10px;
 }
-/*.summary-content-unit {*/
-    /*box-sizing: border-box;*/
-    /*width: 25%;*/
-    /*display: inline-block;*/
-    /*background-color: #ffffff;*/
-    /*padding: 5px;*/
-/*}*/
-/*.summary-content-unit-wrap {*/
-    /*min-height: 272px;*/
-/*}*/
-/*.summary-content-unit-box {*/
-    /*display: inline-block;*/
-    /*width: 25%;*/
-    /*float: left;*/
-    /*padding: 10px;*/
-    /*background-color: rgba(66, 81, 119, .1);*/
-/*}*/
-/*.summary-content-top {*/
-    /*background-color: #ffffff;*/
-/*}*/
-/*.summary-content-unit p {*/
-    /*color: #000000;*/
-    /*font-size: 20px;*/
-/*}*/
-/*.unit-img-left {*/
-    /*position: relative;*/
-    /*top: 25px;*/
-    /*float: left;*/
-    /*width: 38px;*/
-/*}*/
-/*.unit-img-right {*/
-    /*float: right;*/
-    /*width: 80px;*/
-/*}*/
-/*.summary-title-icon {*/
-    /*display: inline-block;*/
-    /*width: 4px;*/
-    /*height: 16px;*/
-    /*vertical-align: middle;*/
-    /*background-color: rgba(210, 10, 16, 1);*/
-    /*line-height: 70px;*/
-/*}*/
-/*.summary-title {*/
-    /*margin-bottom: 5px;*/
-    /*text-align: left;*/
-/*}*/
-/*.summary-title h3 {*/
-    /*display: inline-block;*/
-    /*font-size: 16px;*/
-/*}*/
+.summary-content-unit-inside {
+    box-sizing: border-box;
+    height: 180px;
+    padding: 20px;
+    background-color: rgba(66, 81, 119, .1);
+}
+.summary-content-unit-wrap {
+    overflow: hidden;
+    background-color: #ffffff;
+}
+.summary-content-unit p {
+    color: #000000;
+    font-size: 20px;
+    padding-bottom: 30px;
+}
+.unit-img-left {
+    position: relative;
+    top: 25px;
+    float: left;
+    width: 38px;
+}
+.unit-img-right {
+    float: right;
+    width: 80px;
+}
+.summaryBackBtn-wrap {
+    background-color: #ffffff;
+    text-align: right;
+    padding: 10px;
+    padding-right: 30px;
+}
 .tabBar-dynamic>span {
     cursor: pointer;
     text-align: center;
